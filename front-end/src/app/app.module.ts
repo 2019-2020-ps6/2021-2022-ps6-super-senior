@@ -18,6 +18,8 @@ import { UserFormComponent } from './users/user-form/user-form.component';
 import { UserListComponent } from './users/user-list/user-list.component';
 import { AccueilComponent } from './accueil/accueil.component';
 import { LancementQuizComponent } from './lancement-quiz/lancement-quiz.component';
+import { ConfigQuizComponent } from './config-quiz/config-quiz.component';
+import { JeuComponent } from './jeu/jeu.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +37,8 @@ import { LancementQuizComponent } from './lancement-quiz/lancement-quiz.componen
     UserListComponent,
     AccueilComponent,
     LancementQuizComponent,
+    ConfigQuizComponent,
+    JeuComponent,
   ],
   imports: [
     BrowserModule,
