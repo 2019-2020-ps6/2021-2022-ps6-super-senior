@@ -7,11 +7,13 @@ import { AccueilComponent } from './accueil/accueil.component';
 import { LancementQuizComponent } from './lancement-quiz/lancement-quiz.component';
 import { ConfigQuizComponent } from './config-quiz/config-quiz.component';
 import { JeuComponent } from './jeu/jeu.component';
+import { QuizFormComponent } from './quizzes/quiz-form/quiz-form.component';
 
 const routes: Routes = [
     {path: 'lancement-quiz', component: LancementQuizComponent},
     {path: 'user-list', component: UserListComponent},
     {path: 'quiz-list', component: QuizListComponent},
+    {path: 'quiz-form', component: QuizFormComponent},
     {path: 'edit-quiz/:id', component: EditQuizComponent},
     {path: 'config-quiz', component: ConfigQuizComponent},
     {path: 'jeu', component: JeuComponent},
