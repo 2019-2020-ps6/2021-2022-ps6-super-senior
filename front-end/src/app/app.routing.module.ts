@@ -4,8 +4,10 @@ import { QuizListComponent } from './quizzes/quiz-list/quiz-list.component';
 import { EditQuizComponent } from './quizzes/edit-quiz/edit-quiz.component';
 import { UserListComponent } from './users/user-list/user-list.component';
 import { AccueilComponent } from './accueil/accueil.component';
+import { LancementQuizComponent } from './lancement-quiz/lancement-quiz.component';
 
 const routes: Routes = [
+    {path: 'lancement-quiz', component: LancementQuizComponent},
     {path: 'user-list', component: UserListComponent},
     {path: 'quiz-list', component: QuizListComponent},
     {path: 'edit-quiz/:id', component: EditQuizComponent},
