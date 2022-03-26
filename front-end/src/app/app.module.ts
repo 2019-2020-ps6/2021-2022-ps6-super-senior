@@ -20,6 +20,7 @@ import { AccueilComponent } from './accueil/accueil.component';
 import { LancementQuizComponent } from './lancement-quiz/lancement-quiz.component';
 import { ConfigQuizComponent } from './config-quiz/config-quiz.component';
 import { JeuComponent } from './jeu/jeu.component';
+import { FinQuizComponent } from './fin-quiz/fin-quiz.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { JeuComponent } from './jeu/jeu.component';
     LancementQuizComponent,
     ConfigQuizComponent,
     JeuComponent,
+    FinQuizComponent,
   ],
   imports: [
     BrowserModule,
