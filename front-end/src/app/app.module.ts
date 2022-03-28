@@ -17,6 +17,10 @@ import { UserComponent } from './users/user/user.component';
 import { UserFormComponent } from './users/user-form/user-form.component';
 import { UserListComponent } from './users/user-list/user-list.component';
 import { AccueilComponent } from './accueil/accueil.component';
+import { LancementQuizComponent } from './lancement-quiz/lancement-quiz.component';
+import { ConfigQuizComponent } from './config-quiz/config-quiz.component';
+import { JeuComponent } from './jeu/jeu.component';
+import { FinQuizComponent } from './fin-quiz/fin-quiz.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +37,10 @@ import { AccueilComponent } from './accueil/accueil.component';
     UserFormComponent,
     UserListComponent,
     AccueilComponent,
+    LancementQuizComponent,
+    ConfigQuizComponent,
+    JeuComponent,
+    FinQuizComponent,
   ],
   imports: [
     BrowserModule,

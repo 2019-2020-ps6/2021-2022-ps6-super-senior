@@ -22,6 +22,7 @@ export class QuizListComponent implements OnInit {
   }
 
   quizSelected(selected: boolean): void {
+    this.router.navigate(['/lancement-quiz']);
     console.log('event received from child:', selected);
   }
 
