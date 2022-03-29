@@ -11,12 +11,12 @@ import { FinQuizComponent } from './fin-quiz/fin-quiz.component';
 import { QuizFormComponent } from './quizzes/quiz-form/quiz-form.component';
 
 const routes: Routes = [
-    {path: 'lancement-quiz', component: LancementQuizComponent},
+    {path: 'lancement-quiz/:id', component: LancementQuizComponent},
     {path: 'user-list', component: UserListComponent},
     {path: 'quiz-list', component: QuizListComponent},
     {path: 'quiz-form', component: QuizFormComponent},
     {path: 'edit-quiz/:id', component: EditQuizComponent},
-    {path: 'config-quiz', component: ConfigQuizComponent},
+    {path: 'config-quiz/:id', component: ConfigQuizComponent},
     {path: 'jeu', component: JeuComponent},
     {path: 'fin-quiz', component: FinQuizComponent},
     {path: 'accueil' , component: AccueilComponent },
