@@ -1,6 +1,8 @@
 <div class="card">
-  <h2>Create a new Quiz</h2>
+  <h2>Création Quiz</h2>
   <form class="quiz-form" [formGroup]="quizForm">
+    <button type="submit" class="button-card" (click)="addQuiz()">Créer Quiz</button>
+    <br>
     <label for="title">
       Title <br>
       <input class="input-custom" type="text" id="name" [formControlName]="'name'">
@@ -15,6 +17,30 @@
     <br>
     <img type="image" src="../../../../data/Planet9_3840x2160.jpg">
   </form>
+</div>
+<div class="Questions">
+  <label for="Question">
+    Question <br>
+    <input class="input-custom" type="text" id="name" [formControlName]="'name'">
+  </label>
+  <label for="bonneRep">
+    Bonne réponse <br>
+    <input class="input-custom" type="text" id="name" [formControlName]="'name'">
+  </label>
+  <label for="reponse2">
+    Reponse 2 <br>
+    <input class="input-custom" type="text" id="name" [formControlName]="'name'">
+  </label>
+  <label for="reponse3">
+    Reponse 3 <br>
+    <input class="input-custom" type="text" id="name" [formControlName]="'name'">
+  </label>
+  <label for="reponse4">
+    Reponse 4 <br>
+    <input class="input-custom" type="text" id="name" [formControlName]="'name'">
+  </label>
+  <button type="submit" class="button-ajout-question" (click)="addQuiz()">Ajouter cette question</button>
+
 </div>
 <!-- Uncomment below to see your form structure and how it changes-->
 <!-- <br><br>{{quizForm.getRawValue() | json}} -->
