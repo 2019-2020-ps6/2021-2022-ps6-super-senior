@@ -10,13 +10,18 @@
 
 .header {
 	background: steelblue;
-	display: grid;
-	grid-template-columns: 1fr 1fr 1fr;
-	/**
+	// display: grid;
+	// grid-template-columns: 1fr 1fr 1fr;
 	display: flex;
+	/**
 	align-items: center;
 	justify-content: space-around;
 	*/
+	flex: 1;
+}
+
+div {
+	width: 100%;
 }
 
 
@@ -44,7 +49,12 @@ button {
 	background-color: steelblue;
 	color: white;
 	padding: 1em;
+	width: 100%;
+	font-size: 1em;
 }
 
+ul {
+	width: 33.3%;
+}
 
 
