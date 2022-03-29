@@ -1,1 +1,29 @@
-@import '../../../styles/card.scss';
+@import "../../../styles/variables";
+
+.card {
+    height: max-content;
+    background: $white;
+    display: inline-block;
+    margin: 1rem;
+    position: relative;
+    padding: 0 1em 1em 1em;
+  }
+  
+  .button-card {
+    background-color: pink;
+    border: solid 1px pink;
+    color: white;
+    font-weight: bold;
+    padding: 0.5em 1em;
+  }
+  
+  .button-card:hover {
+    cursor: pointer;
+  }
+
+ .Questions{
+    background-color: beige;
+    border: solid 1px black;
+    color: black;
+    display: inline-block;
+}
