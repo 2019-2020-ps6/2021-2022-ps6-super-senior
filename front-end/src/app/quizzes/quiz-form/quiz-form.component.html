@@ -1,52 +1,51 @@
+<h2>Création Quiz</h2>
 <div class="card">
-  <h2>Création Quiz</h2>
-  <form class="quiz-form" [formGroup]="quizForm">
-    <button type="submit" class="button-card" (click)="addQuiz()">Créer Quiz</button>
-    <br>
-    <label for="title">
-      Title <br>
-      <input class="input-custom" type="text" id="name" [formControlName]="'name'">
+  <div class="quiz">
+    <form class="quiz-form" [formGroup]="quizForm">
+      <button type="submit" class="button-card" (click)="addQuiz()">Créer Quiz</button>
+      <br>
+      <label for="title">
+        Title <br>
+        <input class="input-custom" type="text" id="name" [formControlName]="'name'">
+      </label>
+      <br>
+      <label for="theme">
+        Theme <br>
+        <input class="input-custom" type="text" id="theme" [formControlName]="'theme'">
+      </label>
+    </form>
+  </div>
+  <div class="Questions">
+    <label for="Question">
+      Question 
+      <br>
+      <input class="input-custom" type="text" id="name" >
     </label>
-    <br>
-    <label for="theme">
-      Theme <br>
-      <input class="input-custom" type="text" id="theme" [formControlName]="'theme'">
-    </label>
-  </form>
-</div>
-<div class="Questions">
-  <label for="Question">
-    Question 
-    <br>
-    <input class="input-custom" type="text" id="name" [formControlName]="'name'">
-  </label>
-  <br>
-  <label for="bonneRep">
-    Bonne réponse 
-    <br>
-    <input class="input-custom" type="text" id="name" [formControlName]="'name'">
-  </label>
-  <br>
-  <label for="reponse2">
-    Reponse 2 
-    <br>
-    <input class="input-custom" type="text" id="name" [formControlName]="'name'">
-  </label>
-  <br>
-  <label for="reponse3">
-    Reponse 3 
-    <br>
-    <input class="input-custom" type="text" id="name" [formControlName]="'name'">
-  </label>
-  <br>
-  <label for="reponse4">
-    Reponse 4 
-    <br>
-    <input class="input-custom" type="text" id="name" [formControlName]="'name'">
-  </label>
-  <br>
-  <button type="submit" class="button-ajout-question" (click)="addQuiz()">Ajouter cette question</button>
-
+    <div class="reponse">
+      <div class="bonneRep">
+        Bonne réponse 
+        <br>
+        <input class="input-custom" type="text" id="name" >
+      </div>
+      <div class="reponse2">
+        Reponse 2 
+        <br>
+        <input class="input-custom" type="text" id="name">
+      </div>
+      <div class="reponse3">
+        Reponse 3 
+        <br>
+      <input class="input-custom" type="text" id="name">
+    </div>
+      <div class="reponse4">
+        Reponse 4 
+        <br>
+      <input class="input-custom" type="text" id="name">
+    </div>
+    </div>
+    <button type="submit" class="button-ajout-question" (click)="addQuiz()">Ajouter cette question</button>
+  </div>
+  
 </div>
 <!-- Uncomment below to see your form structure and how it changes-->
 <!-- <br><br>{{quizForm.getRawValue() | json}} -->
