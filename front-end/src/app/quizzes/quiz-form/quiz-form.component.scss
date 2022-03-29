@@ -1,12 +1,12 @@
 @import "../../../styles/variables";
 
 .card {
-    height: max-content;
     background: $white;
-    display: inline-block;
-    margin: 1rem;
-    position: relative;
     padding: 0 1em 1em 1em;
+    height: 500px;
+    width: 300px;
+    position: relative;
+    display: inline-block;
   }
   
   .button-card {
@@ -22,8 +22,12 @@
   }
 
  .Questions{
-    background-color: beige;
-    border: solid 1px black;
+    width: 600px;
+    background-color: $white;
     color: black;
     display: inline-block;
+    position: relative;
+    padding: 1em 1em 1em 1em;
+    height: 500px;
+    margin: 60px;
 }
