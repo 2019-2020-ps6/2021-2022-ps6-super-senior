@@ -1,13 +1,10 @@
 <div class="header">
-    <!--
-    <button class="button-card" routerLink="/accueil">Super Sénior</button>
-    <button class="button-card" routerLink="/quiz-list">Créer Quiz</button>
-    <button class="button-card" routerLink="/user-list">User</button-->
-
-    <button class="principal" routerLink="/accueil">Super Sénior</button>
-    <button class="principal" routerLink="/quiz-list">Créer Quiz</button>
+        <div>
+    <button class="principal" routerLink="/accueil"> <i class="fa-solid fa-house-chimney"></i> Super Sénior</button></div>
+    <div>
+    <button class="principal" routerLink="/quiz-list"> <i class="fab fa-leanpub"></i> Créer Quiz</button></div>
     <div class="sous-menu">
-        <button class="principal" routerLink="/user-list">User</button>
+        <button class="principal" routerLink="/user-list"> <i class="fa-solid fa-circle-user"></i> User</button>
         <ul>
             <li><button class="secondaire" routerLink="/user-list">Mon Compte</button></li>
             <li><button class="secondaire" routerLink="/user-list">Mes Patients</button></li>
@@ -15,10 +12,4 @@
             <li><button class="secondaire" routerLink="/user-list">Déconnexion</button></li>
         </ul>
     </div>
-
-    <!--
-    <a class="navigation" [routerLink]="['/accueil']">Super-Senior</a>
-    <a class="navigation" [routerLink]="['/quiz-list']">Quiz</a>
-    <a class="navigation" [routerLink]="['/user-list']">Users</a> 
-    -->
 </div>
