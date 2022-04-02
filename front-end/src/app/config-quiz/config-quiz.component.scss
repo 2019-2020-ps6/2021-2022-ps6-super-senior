@@ -1,0 +1,26 @@
+
+.Temps{
+    display: flex;
+}
+
+.ChoixTemps{
+    padding: 0.90em 1em;
+    
+}
+
+.TitreTaillePolice{
+    display: inline-block;
+}
+
+.Taille{
+    display: inline-block;
+    flex-wrap: nowrap;
+}
+
+.button-card {
+    background-color: rgb(192, 242, 255);
+    border: solid 1px black;
+    color: black;
+    font-weight: bold;
+    padding: 0.5em 1em;
+}
