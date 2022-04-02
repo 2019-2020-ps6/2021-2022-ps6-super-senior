@@ -8,17 +8,27 @@
     <br>
     <button class="button-card" (click)="addAnswer()">Add Answer</button>
     <div class="answer" formArrayName="answers">
-      <div *ngFor="let address of answers.controls; let i=index">
-        <div class="answer-form" [formGroupName]="i">
-          <label>
-            Answer
-            <input type="text" [formControlName]="'value'">
-            <br>
-            Correct
-            <input type="checkbox" [formControlName]="'isCorrect'">
-          </label>
+      <label>
+      <div class="answer-form" [formGroupName]=0>
+          Réponse correcte
+          <input type="text" [formControlName]="'value'">
+          <br>
         </div>
-      </div>
+        <div class="answer-form" [formGroupName]=1>
+          Deuxième réponse
+          <input type="text" [formControlName]="'value'">
+          <br>
+        </div>
+          <div *ngFor="let address of answers.controls| slice:0:3; let i=index">
+            <div class="answer-form" [formGroupName]="i+2">
+              <ng-container *ngIf="i==0 ; else elseBlock">
+                Troisième réponse
+            </ng-container>
+            <ng-template #elseBlock>Quatrième reponse</ng-template>
+            <input type="text" [formControlName]="'value'">
+          </div>
+        </div>
+      </label>
     </div>
     <button type="submit" class="button-card" (click)="addQuestion()">Create</button>
   </form>
