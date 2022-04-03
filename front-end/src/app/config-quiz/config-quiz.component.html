@@ -38,7 +38,8 @@
     </div>
 </div>
 
-
-<button class="button-card" routerLink="/config-quiz/{{quiz.id}}">Réinitialiser</button>
-<button class="button-card" routerLink="/config-quiz/{{quiz.id}}">Enregistrer</button>
-<button class="button-card" routerLink="/lancement-quiz/{{quiz.id}}">Retour au quiz</button>
+<ng-container *ngIf="quiz">
+  <button class="button-card" routerLink="/config-quiz/{{quiz.id}}">Réinitialiser</button>
+  <button class="button-card" routerLink="/config-quiz/{{quiz.id}}">Enregistrer</button>
+  <button class="button-card" routerLink="/lancement-quiz/{{quiz.id}}">Retour au quiz</button>
+</ng-container>
