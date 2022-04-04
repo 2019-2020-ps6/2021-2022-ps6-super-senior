@@ -20,7 +20,7 @@ const routes: Routes = [
     {path: 'jeu', component: JeuComponent},
     {path: 'fin-quiz', component: FinQuizComponent},
     {path: 'accueil' , component: AccueilComponent },
-    { path: '', redirectTo: '/accueil', pathMatch: 'full' },
+    {path: '', redirectTo: '/accueil', pathMatch: 'full' },
 ];
 
 @NgModule({
