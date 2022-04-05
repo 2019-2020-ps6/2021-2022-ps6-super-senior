@@ -1,34 +1,45 @@
 <div class="card">
-  <h2>Create a new question</h2>
+  <h2>Create a new question !!</h2>
   <form class="quiz-form" [formGroup]="questionForm">
     <label for="label">
       Title <br>
       <input class="input-custom" type="text" id="label" [formControlName]="'label'">
     </label>
     <br>
-    <button class="button-card" (click)="addAnswer()">Add Answer</button>
+    <button class="button-card" (click)="addAnswer()" *ngIf="answers.length<4">Add Answer</button>
     <div class="answer" formArrayName="answers">
-      <label>
-      <div class="answer-form" [formGroupName]=0>
+      <!--<label>
+        <div class="answer-form" [formGroupName]="'0'">
           Réponse correcte
           <input type="text" [formControlName]="'value'">
           <br>
         </div>
-        <div class="answer-form" [formGroupName]=1>
+        <div class="answer-form" [formGroupName]="'1'">
           Deuxième réponse
           <input type="text" [formControlName]="'value'">
           <br>
         </div>
-          <div *ngFor="let address of answers.controls| slice:0:3; let i=index">
-            <div class="answer-form" [formGroupName]="i+2">
-              <ng-container *ngIf="i==0 ; else elseBlock">
-                Troisième réponse
+        <div *ngFor="let address of answers.controls| slice:0:3; let i=index">
+          <div class="answer-form" [formGroupName]="i+2">
+            <ng-container *ngIf="i==0 ; else elseBlock">
+              Troisième réponse
             </ng-container>
             <ng-template #elseBlock>Quatrième reponse</ng-template>
             <input type="text" [formControlName]="'value'">
           </div>
         </div>
-      </label>
+      </label> -->
+      <div *ngFor="let address of answers.controls; let i=index">
+        <div class="answer-form" [formGroupName]="i">
+          <label>
+            Answer
+            <input type="text" [formControlName]="'value'">
+            <br>
+            Correct
+            <input type="checkbox" [formControlName]="'isCorrect'">
+          </label>
+        </div>
+      </div>
     </div>
     <button type="submit" class="button-card" (click)="addQuestion()">Create</button>
   </form>

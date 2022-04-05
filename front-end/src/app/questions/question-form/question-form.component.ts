@@ -26,6 +26,8 @@ export class QuestionFormComponent implements OnInit {
       label: ['', Validators.required],
       answers: this.formBuilder.array([])
     });
+    this.addAnswer();
+    this.addAnswer();
   }
 
   ngOnInit(): void {
