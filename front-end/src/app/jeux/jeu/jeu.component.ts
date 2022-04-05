@@ -8,7 +8,11 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class JeuComponent implements OnInit {
 
-  constructor() { }
+  public indexQuestion : number;
+
+  constructor() {
+    this.indexQuestion = 0;
+   }
 
   ngOnInit(): void {
   }
