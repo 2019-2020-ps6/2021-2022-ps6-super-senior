@@ -4,7 +4,8 @@ import { User } from "./user.model";
 
 export interface Jeu {
     id : string;
-    quiz: Quiz;
+    quiz : Quiz;
+    quizId: string;
     user: User;
     answers: Answer[];
 }
