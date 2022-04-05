@@ -19,7 +19,8 @@ import { UserListComponent } from './users/user-list/user-list.component';
 import { AccueilComponent } from './accueil/accueil.component';
 import { LancementQuizComponent } from './lancement-quiz/lancement-quiz.component';
 import { ConfigQuizComponent } from './config-quiz/config-quiz.component';
-import { JeuComponent } from './jeu/jeu.component';
+import { JeuComponent } from './jeux/jeu/jeu.component';
+import { JeuQuestionComponent } from './jeux/jeu-question/jeu-question.component';
 import { FinQuizComponent } from './fin-quiz/fin-quiz.component';
 
 @NgModule({
@@ -40,6 +41,7 @@ import { FinQuizComponent } from './fin-quiz/fin-quiz.component';
     LancementQuizComponent,
     ConfigQuizComponent,
     JeuComponent,
+    JeuQuestionComponent,
     FinQuizComponent,
   ],
   imports: [
