@@ -1,6 +1,7 @@
 <h2>jeu</h2>
-<div class='question'>
+<div class='question' *ngIf="jeu">
     test
+    {{jeu.quiz.id}}
 </div>
 <app-jeu-question [question]="quiz.questions"></app-jeu-question>
 <button class="button-card" routerLink="/fin-quiz">Terminer le quiz</button>
