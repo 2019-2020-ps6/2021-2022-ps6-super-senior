@@ -2,12 +2,14 @@ const { Router } = require('express')
 
 const { Jeu } = require('../../models')
 const manageAllErrors = require('../../utils/routes/error-management')
+const QuizRouter = require('../quizzes')
 const { buildJeu, buildJeux } = require('./manager')
 
 const router = new Router()
 
+router.use('/:jeuId/quizzes', QuizRouter)
+
 router.get('/', (req, res) => {
-    console.log("ICIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII");
     try {
       const jeux = buildJeux()
       res.status(200).json(jeux)
@@ -18,7 +20,6 @@ router.get('/', (req, res) => {
   
   router.get('/:jeuId', (req, res) => {
     try {
-      console.log(req.params.jeuId)
       const jeu = buildJeu(req.params.jeuId)
       res.status(200).json(jeu)
     } catch (err) {
