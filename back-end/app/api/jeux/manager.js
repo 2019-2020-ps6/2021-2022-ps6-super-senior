@@ -6,7 +6,6 @@ const { Jeu } = require('../../models')
  * @param jeuId
  */
 const buildJeu = (jeuId) => {
-  console.log("build " + jeuId);
   const jeu = Jeu.getById(jeuId)
   return {...jeu}
 }
