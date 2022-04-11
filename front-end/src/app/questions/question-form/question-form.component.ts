@@ -37,15 +37,26 @@ export class QuestionFormComponent implements OnInit {
     return this.questionForm.get('answers') as FormArray;
   }
 
-  private createAnswer(): FormGroup {
+  private createFalseAnswer(): FormGroup {
     return this.formBuilder.group({
       value: '',
       isCorrect: false,
     });
   }
+  private createTrueAnswer(): FormGroup {
+    return this.formBuilder.group({
+      value: '',
+      isCorrect: true,
+    });
+  }
 
   addAnswer(): void {
-    this.answers.push(this.createAnswer());
+    if(this.answers.length==0){
+      this.answers.push(this.createTrueAnswer());
+    }
+    else{
+      this.answers.push(this.createFalseAnswer());
+    }
   }
 
   addQuestion(): void {

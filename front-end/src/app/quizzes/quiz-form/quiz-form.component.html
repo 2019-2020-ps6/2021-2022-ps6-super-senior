@@ -2,7 +2,8 @@
 <div class="card">
   <div class="quiz">
     <form class="quiz-form" [formGroup]="quizForm">
-      <button type="submit" class="button-card" (click)="addQuiz()">Créer Quiz</button>
+      <!--<button type="submit" class="button-card" (click)="addQuiz()">Créer Quiz</button> -->
+      <button type="submit" class="button-card" routerLink="/accueil">Créer Quiz</button>
       <br>
       <label for="title">
         Title <br>
@@ -16,36 +17,35 @@
     </form>
   </div>
   <div class="Questions">
-    <label for="Question">
-      Question 
-      <br>
-      <input class="input-custom" type="text" id="name" >
-    </label>
-    <div class="reponse">
-      <div class="bonneRep">
-        Bonne réponse 
+    <div class="card">
+      <h2>Nouvelle question</h2>
+      <form class="quiz-form" [formGroup]="questionForm">
+        <label for="label">
+          Titre <br>
+          <input class="input-custom" type="text" id="label" [formControlName]="'label'">
+        </label>
         <br>
-        <input class="input-custom" type="text" id="name" >
-      </div>
-      <div class="reponse2">
-        Reponse 2 
-        <br>
-        <input class="input-custom" type="text" id="name">
-      </div>
-      <div class="reponse3">
-        Reponse 3 
-        <br>
-      <input class="input-custom" type="text" id="name">
+        <button class="button-card" (click)="addAnswer()" *ngIf="answers.length<4">Ajouter une réponse</button>
+        <div class="answer" formArrayName="answers">
+          <div *ngFor="let address of answers.controls; let i=index">
+            <div class="answer-form" [formGroupName]="i" [formControlName]="'isCorrect'" span *ngIf="i==0">
+              <label>
+                Réponse correcte
+                <input type="text" [formControlName]="'value'">
+              </label>
+            </div>
+            <div class="answer-form" [formGroupName]="i" span *ngIf="i>0" >
+              <label>
+                Réponse fausse
+                <input type="text" [formControlName]="'value'">
+              </label>
+            </div>
+          </div>
+        </div>
+        <button type="submit" class="button-card" (click)="addQuestion()">Ajout Question</button>
+      </form>
     </div>
-      <div class="reponse4">
-        Reponse 4 
-        <br>
-      <input class="input-custom" type="text" id="name">
-    </div>
-    </div>
-    <button type="submit" class="button-ajout-question" (click)="addQuiz()">Ajouter cette question</button>
   </div>
-
   <app-question-list [quiz]="quiz"></app-question-list>
   
 </div>

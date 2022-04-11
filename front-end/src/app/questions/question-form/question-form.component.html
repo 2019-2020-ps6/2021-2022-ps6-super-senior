@@ -1,12 +1,12 @@
 <div class="card">
-  <h2>Create a new question !!</h2>
+  <h2>Nouvelle question</h2>
   <form class="quiz-form" [formGroup]="questionForm">
     <label for="label">
-      Title <br>
+      Titre <br>
       <input class="input-custom" type="text" id="label" [formControlName]="'label'">
     </label>
     <br>
-    <button class="button-card" (click)="addAnswer()" *ngIf="answers.length<4">Add Answer</button>
+    <button class="button-card" (click)="addAnswer()" *ngIf="answers.length<4">Ajouter une réponse</button>
     <div class="answer" formArrayName="answers">
       <!--<label>
         <div class="answer-form" [formGroupName]="'0'">
@@ -30,18 +30,21 @@
         </div>
       </label> -->
       <div *ngFor="let address of answers.controls; let i=index">
-        <div class="answer-form" [formGroupName]="i">
+        <div class="answer-form" [formGroupName]="i" [formControlName]="'isCorrect'" span *ngIf="i==0">
           <label>
-            Answer <span *ngIf="i==0"> correct </span>
+            Réponse correcte
             <input type="text" [formControlName]="'value'">
-            <br>
-            Correct
-            <input type="checkbox" [formControlName]="'isCorrect'">
+          </label>
+        </div>
+        <div class="answer-form" [formGroupName]="i" span *ngIf="i>0" >
+          <label>
+            Réponse fausse
+            <input type="text" [formControlName]="'value'">
           </label>
         </div>
       </div>
     </div>
-    <button type="submit" class="button-card" (click)="addQuestion()">Create</button>
+    <button type="submit" class="button-card" (click)="addQuestion()">Ajout Question</button>
   </form>
 </div>
 
