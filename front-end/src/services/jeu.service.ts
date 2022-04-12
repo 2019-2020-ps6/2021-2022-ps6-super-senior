@@ -14,9 +14,9 @@ export class JeuService{
 
     public jeux$: BehaviorSubject<Jeu[]>=new BehaviorSubject(this.jeux);
 
-    private jeuSelected$: Subject<Jeu>=new Subject();
+    public jeuSelected$: Subject<Jeu>=new Subject();
 
-    private jeuURL = serverUrl+ './jeux';
+    private jeuURL = serverUrl+ '/jeux';
 
     private httpOptions = httpOptionsBase;
 
@@ -32,6 +32,7 @@ export class JeuService{
     }
 
     addJeu(jeu: Jeu):void{
+        console.log(this.jeuURL + jeu.id);
         this.http.post<Jeu>(this.jeuURL,jeu,this.httpOptions).subscribe(()=>this.retrieveJeux());
     }
 

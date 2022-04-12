@@ -1,13 +1,13 @@
 <div class="question">
     <h2>
-        ici
-        <i class="fab fa-leanpub"></i>
-        question
+        question : 
         {{question.label}}
     </h2>
     <div class="answer" *ngFor="let answer of question.answers; let i=index">
         reponse
-         {{answer.value}} <br>
+         {{answer.value}}
+         <button class="answer" (click)="selectAnswer(answer.id)"> click</button>
+          <br>
     </div>
 
     

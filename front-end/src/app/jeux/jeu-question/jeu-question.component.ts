@@ -13,9 +13,15 @@ export class JeuQuestionComponent implements OnInit {
     @Input()
   question: Question;
 
+  @Output()
+  answerSelected: EventEmitter<string> = new EventEmitter<string>();
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  selectAnswer(answersId : string ) : void {
+    this.answerSelected.emit(answersId);
+  }
 }

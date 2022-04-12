@@ -7,5 +7,5 @@ export interface Jeu {
     quiz : Quiz;
     quizId: string;
     user: User;
-    answers: Answer[];
+    answers: string[];
 }
