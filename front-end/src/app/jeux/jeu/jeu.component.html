@@ -1,12 +1,18 @@
-<h2>jeu</h2>
-<div class='question' *ngIf="jeu">
-    tester
-    {{jeu.quiz.id}}
+<div class="top-jeu">
+    <h2 class="nom-quiz">
+        {{quiz.name}}
+    </h2>
+    <h2 class="score">
+        Score : {{score}}
+    </h2>
+    <div class="fin-quiz" *ngIf="indexQuestion===quiz.questions.length">
+        <button class="button-card" routerLink="/fin-quiz">Terminer le quiz</button>
+    </div>
+    <div class="abandon" *ngIf="indexQuestion!=quiz.questions.length">
+        <button class="button-abandon" routerLink="/accueil">Abandonner</button>
+    </div>
 </div>
-<h3 *ngIf="quiz">
-    {{indexQuestion}}
-    {{quiz.id}}
-</h3>
-<app-jeu-question *ngIf="indexQuestion!=quiz.questions.length" [question]="quiz.questions[indexQuestion]" (answerSelected)="answerSelected($event)"></app-jeu-question>
-<button class="button-card" *ngIf="indexQuestion===quiz.questions.length" routerLink="/fin-quiz">Terminer le quiz</button>
-<button class="button-abandon" *ngIf="indexQuestion!=quiz.questions.length" routerLink="/accueil">Abandonner</button>
+<div class="fin" *ngIf="indexQuestion===quiz.questions.length">
+    Vous avez fini ! 
+</div>
+<app-jeu-question class="question" *ngIf="indexQuestion!=quiz.questions.length" [question]="quiz.questions[indexQuestion]" (answerSelected)="answerSelected($event)" (answerCorrect)="isCorrect($event)"></app-jeu-question>

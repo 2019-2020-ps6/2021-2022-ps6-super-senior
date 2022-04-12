@@ -1,14 +1,11 @@
-<div class="question">
+<div class="parent">
     <h2>
-        question : 
         {{question.label}}
     </h2>
-    <div class="answer" *ngFor="let answer of question.answers; let i=index">
-        reponse
-         {{answer.value}}
-         <button class="answer" (click)="selectAnswer(answer.id)"> click</button>
-          <br>
+    <div class="answer-list">
+        <div class="answers" *ngFor="let answer of question.answers; let i=index">
+            <button class="answer" (click)="selectAnswer(answer.id);isCorrect(answer.isCorrect)">{{answer.value}}</button>
+       </div>
     </div>
-
     
 </div>

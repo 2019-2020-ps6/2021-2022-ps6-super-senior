@@ -20,6 +20,7 @@ export class JeuComponent implements OnInit {
   public quiz : Quiz;
   public jeu : Jeu;
   public indexQuestion : number;
+  public score : number = 0;
 
   constructor(private route: ActivatedRoute, private jeuService: JeuService, private quizService: QuizService, private forBuilder : FormBuilder) {
     /*this.quizService.quizSelected$.subscribe((quiz) => {
@@ -29,6 +30,9 @@ export class JeuComponent implements OnInit {
     );*/
     const id = this.route.snapshot.paramMap.get('id');
     this.quiz = this.quizService.getQuiz(id) as Quiz;
+    this.quizService.quizSelected$.subscribe((quiz) => {
+      this.quiz = quiz;
+    });
     this.addJeu();
     this.indexQuestion = 0;
   }
@@ -55,6 +59,13 @@ export class JeuComponent implements OnInit {
   answerSelected(answersId : string): void {
     this.jeu.answers.push(answersId);
     this.indexQuestion++;
+  }
+
+  isCorrect(isCorrect : boolean) : void {
+    console.log("jeu " + isCorrect);
+    if(isCorrect){
+      this.score++;
+    }
   }
 
 }

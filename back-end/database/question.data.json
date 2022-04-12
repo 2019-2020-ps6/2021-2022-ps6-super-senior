@@ -25,8 +25,13 @@
     "id": 1648999955089
   },
   {
-    "label": "Question 1",
+    "label": "Quel est cet acteur ?",
     "quizId": 1649000324341,
-    "id": 1649143731579
+    "id": 1649795126768
+  },
+  {
+    "label": "Quel est cet acteur ?",
+    "quizId": 1649000324341,
+    "id": 1649795634592
   }
 ]

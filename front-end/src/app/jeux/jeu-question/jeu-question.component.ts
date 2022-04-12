@@ -16,6 +16,9 @@ export class JeuQuestionComponent implements OnInit {
   @Output()
   answerSelected: EventEmitter<string> = new EventEmitter<string>();
 
+  @Output()
+  answerCorrect: EventEmitter<boolean> = new EventEmitter<boolean>();
+
   constructor() { }
 
   ngOnInit(): void {
@@ -24,4 +27,10 @@ export class JeuQuestionComponent implements OnInit {
   selectAnswer(answersId : string ) : void {
     this.answerSelected.emit(answersId);
   }
+
+  isCorrect(isCorrect : boolean) : void {
+    console.log(isCorrect);
+    this.answerCorrect.emit(isCorrect);
+  }
+
 }
