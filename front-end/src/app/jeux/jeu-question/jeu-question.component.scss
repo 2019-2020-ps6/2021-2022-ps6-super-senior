@@ -1,0 +1,32 @@
+
+.parent {
+    color : red;
+    position : relative;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+.answer-list {
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-wrap: wrap;
+    flex-flow: row wrap;
+    justify-content: space-between;
+}
+
+.answers {
+    flex : 1 ;
+    flex-basis: 50%;
+    justify-content: left;
+}
+
+.answer{
+    border : 3pt solid blue;
+    border-radius: 15px;
+    color: black;
+    padding: 80px 110px;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0%;
+}

@@ -72,6 +72,15 @@ export class QuizService {
     this.http.delete<Question>(questionUrl, this.httpOptions).subscribe(() => this.setSelectedQuiz(quiz.id));
   }
 
+  getQuiz(quizId: string): any {
+    for(var i=0; i<this.quizzes.length; i++){
+      if(this.quizzes[i].id==quizId){
+        console.log((this.quizzes[i].id));
+        return this.quizzes[i];
+      }
+    }
+  }
+
   /*
   Note: The functions below don't interact with the server. It's an example of implementation for the exercice 10.
   addQuestion(quiz: Quiz, question: Question) {
