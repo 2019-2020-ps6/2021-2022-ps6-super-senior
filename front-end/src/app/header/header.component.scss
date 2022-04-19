@@ -11,14 +11,7 @@
 .header {
 	position: relative;
 	z-index: 1;
-	background: steelblue;
-	// display: grid;
-	// grid-template-columns: 1fr 1fr 1fr;
 	display: flex;
-	/**
-	align-items: center;
-	justify-content: space-around;
-	*/
 	flex: 1;
 }
 
@@ -48,8 +41,10 @@ button:hover {
 }
 
 button {
+	/**
 	background-color: steelblue;
 	color: white;
+	*/
 	padding: 1em;
 	width: 100%;
 	font-size: 1em;

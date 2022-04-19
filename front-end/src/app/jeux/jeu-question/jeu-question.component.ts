@@ -2,6 +2,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormBuilder, FormArray, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Question } from 'src/models/question.model';
+import { ConfigurationService } from 'src/services/configuration.service';
 
 @Component({
   selector: 'app-jeu-question',
@@ -10,7 +11,7 @@ import { Question } from 'src/models/question.model';
 })
 export class JeuQuestionComponent implements OnInit {
 
-    @Input()
+  @Input()
   question: Question;
 
   @Output()
@@ -19,7 +20,7 @@ export class JeuQuestionComponent implements OnInit {
   @Output()
   answerCorrect: EventEmitter<boolean> = new EventEmitter<boolean>();
 
-  constructor() { }
+  constructor(public configurationService: ConfigurationService) { }
 
   ngOnInit(): void {
   }

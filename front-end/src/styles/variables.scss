@@ -1,4 +1,47 @@
 $app-background-color: #f2f2f2;
 $blue: #3f51b5;
+$red : red;
 $white: white;
-$red : #dd0909
+$protanopie : #085394;
+
+.text-big {
+    font-size: 20px;
+  }
+  
+.text-small {
+  font-size: 10px;
+}
+
+.color-protanopie {
+  color: $protanopie
+}
+
+.color-normal {
+  color: black
+}
+
+.color-protanopie-button {
+  border : 1px solid blue;
+  background-color: white
+}
+
+.color-normal-button {
+  border: solid 1px black;
+  background-color: steelblue;
+}
+
+.position-glaucome {
+
+}
+
+.position-normal {
+
+}
+
+.taille-arthrose {
+
+}
+
+.taille-normal {
+
+}

@@ -1,22 +1,25 @@
 <form method="get" >
-    <h2><u>Configuration</u></h2>
-    <h3><u>Handicap visuel</u></h3>
-    <div class="Protanopie">
-        <label for="protanopie">Protanopie</label>
+  <h2 [ngClass]="configurationService.getColorForProtanopieText()"><u>Configuration</u></h2>
+  <h3 [ngClass]="configurationService.getColorForProtanopieText()"><u>Handicap visuel</u></h3>
+
+  <div class="Protanopie">
+    <label [ngClass]="configurationService.getColorForProtanopieText()" for="protanopie">Protanopie</label>
         <input type = "checkbox" id="protanopie" name="protanopie">
     </div>
     <div class="Glaucome">
-        <label for="glaucome">Glaucome</label>
+      <label [ngClass]="configurationService.getColorForProtanopieText()" for="glaucome">Glaucome</label>
         <input type = "checkbox" id="glaucome" name="glaucome">
     </div>
-    <h3><u>Handicap moteur</u></h3>  
+  <h3 [ngClass]="configurationService.getColorForProtanopieText()" ><u>Handicap moteur</u></h3>
+
     <div class="Arthrose">
-        <label for="arthrose">Arthrose</label>
+      <label [ngClass]="configurationService.getColorForProtanopieText()" for="arthrose">Arthrose</label>
         <input type = "checkbox" id="arthrose" name="arthrose">
     </div>
     <div class="Temps">
-        <p>Temps sur une réponse :</p>
-        <div class="ChoixTemps">
+      <p [ngClass]="configurationService.getColorForProtanopieText()">Temps sur une réponse :</p>
+
+      <div class="ChoixTemps">
             <select id="time">
                 <option value="unesec">1 sec</option>
                 <option value="deuxsec" selected>2 sec</option>
@@ -30,16 +33,17 @@
 
     <div class="Taille">
         <div class="TitreTaillePolice">
-            <h4> Taille de la police</h4>
+            <h4 [ngClass]="configurationService.getColorForProtanopieText()"> Taille de la police</h4>
         </div>
-    
+
+
         <div class="Curseur">
             <input type="range" min="2" max="50" value="30" step ="1" aria-label="Sélectionner la taille de la police" oninput="document.getElementById('AfficheRange').textContent=value" />
             <span id="AfficheRange">30</span>
         </div>
     </div>
 
-    <button type="reset" class="button-card" routerLink="/config-quiz/{{quiz.id}}">Réinitialiser</button>
-    <button type="submit" class="button-card" routerLink="/config-quiz/{{quiz.id}}">Enregistrer</button>
-    <button class="button-card" routerLink="/lancement-quiz/{{quiz.id}}">Retour au quiz</button>
+    <button type="reset" class="button-card" [ngClass]="configurationService.getColorForProtanopieButton()" routerLink="/config-quiz/{{quiz.id}}">Réinitialiser</button>
+    <button type="submit" class="button-card" [ngClass]="configurationService.getColorForProtanopieButton()" routerLink="/config-quiz/{{quiz.id}}">Enregistrer</button>
+    <button class="button-card" [ngClass]="configurationService.getColorForProtanopieButton()" routerLink="/lancement-quiz/{{quiz.id}}">Retour au quiz</button>
 </form>

@@ -1,10 +1,10 @@
 <div class="parent">
-    <h2>
+    <h2 [ngClass]="configurationService.getColorForProtanopieText()">
         {{question.label}}
     </h2>
     <div class="answer-list">
         <div class="answers" *ngFor="let answer of question.answers; let i=index">
-            <button class="answer" (click)="selectAnswer(answer.id);isCorrect(answer.isCorrect)">{{answer.value}}</button>
+            <button class="answer" [ngClass]="configurationService.getColorForProtanopieButton()" (click)="selectAnswer(answer.id);isCorrect(answer.isCorrect)">{{answer.value}}</button>
        </div>
     </div>
     
