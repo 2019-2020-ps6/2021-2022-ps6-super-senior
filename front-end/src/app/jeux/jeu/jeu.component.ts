@@ -7,6 +7,7 @@ import { Question } from 'src/models/question.model';
 import { JeuService } from 'src/services/jeu.service';
 import { QuizService } from 'src/services/quiz.service';
 import { LancementQuizComponent } from 'src/app/lancement-quiz/lancement-quiz.component';
+import { ConfigurationService } from 'src/services/configuration.service';
 
 
 @Component({
@@ -22,7 +23,7 @@ export class JeuComponent implements OnInit {
   public indexQuestion : number;
   public score : number = 0;
 
-  constructor(private route: ActivatedRoute, private jeuService: JeuService, private quizService: QuizService, private forBuilder : FormBuilder) {
+  constructor(private route: ActivatedRoute, private jeuService: JeuService, private quizService: QuizService, private forBuilder : FormBuilder, private configurationService: ConfigurationService) {
     /*this.quizService.quizSelected$.subscribe((quiz) => {
       this.test = quiz;
       this.addJeu();
