@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ConfigurationService } from 'src/services/configuration.service';
+
 
 @Component({
   selector: 'app-header',
@@ -7,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  constructor(public configurationService: ConfigurationService) { }
 
   ngOnInit(): void {
   }
