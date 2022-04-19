@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, FormArray, Validators } from '@angular/forms';
 import { QuizService } from '../../../services/quiz.service';
 import { Quiz } from '../../../models/quiz.model';
 import { Question } from 'src/models/question.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-quiz-form',
@@ -24,8 +25,9 @@ export class QuizFormComponent implements OnInit {
   public questionForm: FormGroup;
   private bool: Boolean;
   private i:number;
+  public quizList: Quiz[] = [];
 
-  constructor(public formBuilder: FormBuilder, public quizService: QuizService) {
+  constructor(public formBuilder: FormBuilder, public quizService: QuizService, private router: Router) {
     this.quizForm = this.formBuilder.group({
       name: [''],
       theme: ['']
@@ -33,6 +35,9 @@ export class QuizFormComponent implements OnInit {
     this.initializeQuestionForm();
     this.bool=false;
     this.i=0;
+    this.quizService.quizzes$.subscribe((quizzes: Quiz[]) => {
+      this.quizList = quizzes;
+    });
     // You can also add validators to your inputs such as required, maxlength or even create your own validator!
     // More information: https://angular.io/guide/reactive-forms#simple-form-validation
     // Advanced validation: https://angular.io/guide/form-validation#reactive-form-validation
@@ -55,7 +60,10 @@ export class QuizFormComponent implements OnInit {
     const quizToCreate: Quiz = this.quizForm.getRawValue() as Quiz;
 
     this.quizService.addQuiz(quizToCreate);
-    this.quiz = quizToCreate;
+    this.quizService.retrieveQuizzes();
+    console.log(this.quizList);
+    this.quiz=this.quizList[this.quizList.length-1];
+    console.log(this.quiz);
   }
 
   get answers(): FormArray {

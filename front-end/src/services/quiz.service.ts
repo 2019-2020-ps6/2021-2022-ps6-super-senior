@@ -42,6 +42,7 @@ export class QuizService {
   retrieveQuizzes(): void {
     this.http.get<Quiz[]>(this.quizUrl).subscribe((quizList) => {
       this.quizzes = quizList;
+      console.log(quizList);
       this.quizzes$.next(this.quizzes);
     });
   }
