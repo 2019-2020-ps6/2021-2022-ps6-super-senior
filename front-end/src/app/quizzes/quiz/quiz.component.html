@@ -1,6 +1,6 @@
 <div class="card" routerLink="/lancement-quiz/{{quiz.id}}">
     <h2>
-        <i class="fab fa-leanpub" routerLink="/edit-quiz/{{quiz.id}}"></i>
+        <i class="fab fa-leanpub" [ngClass]="configurationService.getColorForProtanopieText()" routerLink="/edit-quiz/{{quiz.id}}"></i>
     </h2>
     <img class="imageQuiz" src="https://images.pexels.com/photos/356079/pexels-photo-356079.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500 500w">
     <h3 [ngClass]="configurationService.getColorForProtanopieText()">

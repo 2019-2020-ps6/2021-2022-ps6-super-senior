@@ -1,3 +1,4 @@
+<body [ngClass]="configurationService.getCentreForGlaucome()">
 <div class="top-jeu">
     <h2 class="nom-quiz" [ngClass]="configurationService.getColorForProtanopieText()">
         {{quiz.name}}
@@ -16,3 +17,4 @@
     Vous avez fini ! 
 </div>
 <app-jeu-question class="question" *ngIf="indexQuestion!=quiz.questions.length" [question]="quiz.questions[indexQuestion]" (answerSelected)="answerSelected($event)" (answerCorrect)="isCorrect($event)"></app-jeu-question>
+</body>

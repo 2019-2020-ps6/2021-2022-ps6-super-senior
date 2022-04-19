@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { ConfigurationService } from 'src/services/configuration.service';
 
 @Component({
   selector: 'app-fin-quiz',
@@ -8,7 +9,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class FinQuizComponent implements OnInit {
 
-  constructor() { }
+  constructor(public configurationService: ConfigurationService) { }
 
   ngOnInit(): void {
   }
