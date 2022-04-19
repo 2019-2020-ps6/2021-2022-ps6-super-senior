@@ -9,6 +9,8 @@
 }
 
 .header {
+	position: relative;
+	z-index: 1;
 	background: steelblue;
 	// display: grid;
 	// grid-template-columns: 1fr 1fr 1fr;
