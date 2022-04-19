@@ -23,7 +23,7 @@ export class JeuComponent implements OnInit {
   public indexQuestion : number;
   public score : number = 0;
 
-  constructor(private route: ActivatedRoute, private jeuService: JeuService, private quizService: QuizService, private forBuilder : FormBuilder, private configurationService: ConfigurationService) {
+  constructor(private route: ActivatedRoute, private jeuService: JeuService, private quizService: QuizService, private forBuilder : FormBuilder, public configurationService: ConfigurationService) {
     /*this.quizService.quizSelected$.subscribe((quiz) => {
       this.test = quiz;
       this.addJeu();

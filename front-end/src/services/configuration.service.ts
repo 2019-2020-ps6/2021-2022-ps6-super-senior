@@ -31,7 +31,7 @@ export class ConfigurationService {
     }
 
     getCentreForGlaucome() {
-        return {'position-glaucome': this.glaucome, 'position-normal': !this.glaucome}
+        return {'position-glaucome': this.glaucome}
     }
 
     getTailleForArthrose() {

@@ -25,6 +25,7 @@ export class AccueilComponent implements OnInit {
   }
 
   changeGlaucome(): void {
+    console.log(this.configurationService.glaucome);
     this.configurationService.glaucome = !this.configurationService.glaucome;
   }
 
