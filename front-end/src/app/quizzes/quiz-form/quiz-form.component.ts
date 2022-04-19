@@ -30,7 +30,8 @@ export class QuizFormComponent implements OnInit {
   constructor(public formBuilder: FormBuilder, public quizService: QuizService, private router: Router) {
     this.quizForm = this.formBuilder.group({
       name: [''],
-      theme: ['']
+      theme: [''],
+      image:[""],
     });
     this.initializeQuestionForm();
     this.bool=false;

@@ -1,9 +1,14 @@
 <div class="parent">
-    <h2 [ngClass]="configurationService.getColorForProtanopieText()">
-        {{question.label}} <img class="imageQuestion" *ngIf="question.image" src={{question.image}}>
-    </h2>
+    <div class="label">
+        <h2 class="labelQuestion" [ngClass]="configurationService.getColorForProtanopieText()">
+            {{question.label}} 
+        </h2>
+        <span class="image" *ngIf="question.image">
+            <img class="imageQuestion" src={{question.image}}>
+        </span>
+    </div>
     <div class="answer-list">
-        <div class="answers" *ngFor="let answer of question.answers; let i=index">
+        <div class="answers" *ngFor="let answer of answersRandom; let i=index">
             <button class="answer" [ngClass]="configurationService.getColorForProtanopieButton()" (click)="selectAnswer(answer.id);isCorrect(answer.isCorrect)">{{answer.value}}</button>
        </div>
     </div>
