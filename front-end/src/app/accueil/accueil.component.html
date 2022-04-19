@@ -1,6 +1,7 @@
-<h2>accueil</h2>
-<button class="change-color" (click)="change()">Protanopie</button>
-<button class="button-card" routerLink="/lancement-quiz">Lancer Quiz</button>
+<h2 [ngClass]="configurationService.getColorForProtanopieText()">accueil</h2>
+<button class="change-color" [ngClass]="configurationService.getColorForProtanopieButton()" (click)="changeProtanopie()">Protanopie</button>
+<button class="change-size" [ngClass]="configurationService.getColorForProtanopieButton()" (click)="changeArthrose()">Arthrose</button>
+<button class="change-placement" [ngClass]="configurationService.getColorForProtanopieButton()" (click)="changeGlaucome()">Glaucome</button>
 <app-quiz-list></app-quiz-list>
 
 

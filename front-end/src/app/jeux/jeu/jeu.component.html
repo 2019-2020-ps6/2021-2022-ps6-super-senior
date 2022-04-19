@@ -1,18 +1,18 @@
 <div class="top-jeu">
-    <h2 class="nom-quiz">
+    <h2 class="nom-quiz" [ngClass]="configurationService.getColorForProtanopieText()">
         {{quiz.name}}
     </h2>
-    <h2 class="score">
+    <h2 class="score" [ngClass]="configurationService.getColorForProtanopieText()">
         Score : {{score}}
     </h2>
     <div class="fin-quiz" *ngIf="indexQuestion===quiz.questions.length">
-        <button class="button-card" routerLink="/fin-quiz">Terminer le quiz</button>
+        <button class="button-card" [ngClass]="configurationService.getColorForProtanopieButton()" routerLink="/fin-quiz">Terminer le quiz</button>
     </div>
     <div class="abandon" *ngIf="indexQuestion!=quiz.questions.length">
-        <button class="button-abandon" routerLink="/accueil">Abandonner</button>
+        <button class="button-abandon" [ngClass]="configurationService.getColorForProtanopieButton()" routerLink="/accueil">Abandonner</button>
     </div>
 </div>
-<div class="fin" *ngIf="indexQuestion===quiz.questions.length">
+<div class="fin" [ngClass]="configurationService.getColorForProtanopieText()" *ngIf="indexQuestion===quiz.questions.length">
     Vous avez fini ! 
 </div>
 <app-jeu-question class="question" *ngIf="indexQuestion!=quiz.questions.length" [question]="quiz.questions[indexQuestion]" (answerSelected)="answerSelected($event)" (answerCorrect)="isCorrect($event)"></app-jeu-question>
