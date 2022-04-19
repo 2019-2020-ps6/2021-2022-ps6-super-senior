@@ -9,11 +9,11 @@ import { serverUrl, httpOptionsBase } from '../configs/server.config';
 export class ConfigurationService {
     private configUrl = serverUrl + '/configs';
 
-    protanopie: boolean = true;
+    protanopie: boolean = false;
 
-    glaucome: boolean = true;
+    glaucome: boolean = false;
 
-    arthrose: boolean = true;
+    arthrose: boolean = false;
 
     private httpOptions = httpOptionsBase;
 
