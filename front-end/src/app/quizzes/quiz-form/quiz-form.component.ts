@@ -60,10 +60,7 @@ export class QuizFormComponent implements OnInit {
     const quizToCreate: Quiz = this.quizForm.getRawValue() as Quiz;
 
     this.quizService.addQuiz(quizToCreate);
-    this.quizService.retrieveQuizzes();
-    console.log(this.quizList);
     this.quiz=this.quizList[this.quizList.length-1];
-    console.log(this.quiz);
   }
 
   get answers(): FormArray {
@@ -93,22 +90,24 @@ export class QuizFormComponent implements OnInit {
   }
 
   addQuestion(): void {
-    //si c'est la première fois qu'on est ici et c'est valide on fait un add quizz 
+    //on veut que la question soit valide
     if (this.questionForm.valid) {
 
       const question = this.questionForm.getRawValue() as Question;
-
+      //si c'est la première question de créé on crée le quiz
       if(this.bool==false){
         this.addQuiz();
         this.bool=true;
+        this.i=this.quizList.length;
+        this.quizService.quizzes$.subscribe((quizzes) => {
+          if(quizzes.length==this.i+1){
+            this.quizList = quizzes;
+            this.quizService.addQuestion(this.quizList[this.quizList.length-1],question);}
+        });
         
-        this.i=0;
-        while(this.i<110){this.i++;}
-        this.quizService.addQuestion(this.quiz,question);
       }
       else{
-
-        this.quizService.addQuestion(this.quiz, question);
+        this.quizService.addQuestion(this.quizList[this.quizList.length-1], question);
       }
       this.initializeQuestionForm();
     }
