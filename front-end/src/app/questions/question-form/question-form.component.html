@@ -6,6 +6,11 @@
       <input class="input-custom" type="text" id="label" [formControlName]="'label'">
     </label>
     <br>
+    <label for="image">
+      Image <br>
+      <input class="input-custom" type="text" id="image" [formControlName]="'image'">
+    </label>
+    <br>
     <button class="button-card" (click)="addAnswer()" *ngIf="answers.length<4">Ajouter une réponse</button>
     <div class="answer" formArrayName="answers">
       <!--<label>

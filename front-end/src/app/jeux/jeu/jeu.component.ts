@@ -22,6 +22,7 @@ export class JeuComponent implements OnInit {
   public jeu : Jeu;
   public indexQuestion : number;
   public score : number = 0;
+  private formJeu: FormGroup;
 
   constructor(private route: ActivatedRoute, private jeuService: JeuService, private quizService: QuizService, private forBuilder : FormBuilder, public configurationService: ConfigurationService) {
     /*this.quizService.quizSelected$.subscribe((quiz) => {
@@ -44,15 +45,13 @@ export class JeuComponent implements OnInit {
   }
 
   addJeu() : void {
-    let quizId = this.quiz.id;
     var reponse: string[] = [];
     let jeuToCreate: Jeu = {
-      quizId : quizId,
-      answers : reponse,
-      user : {},
-      quiz: this.quiz} as Jeu;
-    jeuToCreate.quiz = this.quiz;
-    console.log(jeuToCreate.quiz.id);
+      quizId : this.quiz.id,
+      answers : [],
+      userId : "0",
+      } as Jeu; 
+    console.log(jeuToCreate.quizId);
     this.jeuService.addJeu(jeuToCreate);
     this.jeu = jeuToCreate;
   }

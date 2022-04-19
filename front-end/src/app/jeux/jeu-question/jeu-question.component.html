@@ -1,6 +1,6 @@
 <div class="parent">
     <h2 [ngClass]="configurationService.getColorForProtanopieText()">
-        {{question.label}}
+        {{question.label}} <img class="imageQuestion" *ngIf="question.image" src={{question.image}}>
     </h2>
     <div class="answer-list">
         <div class="answers" *ngFor="let answer of question.answers; let i=index">
