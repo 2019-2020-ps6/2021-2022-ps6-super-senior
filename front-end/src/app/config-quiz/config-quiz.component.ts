@@ -1,12 +1,14 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { element } from 'protractor';
 import { Quiz } from 'src/models/quiz.model';
 import { QuizService } from 'src/services/quiz.service';
 
 @Component({
   selector: 'app-config-quiz',
   templateUrl: './config-quiz.component.html',
-  styleUrls: ['./config-quiz.component.scss']
+  styleUrls: ['./config-quiz.component.scss'],
 })
 export class ConfigQuizComponent implements OnInit {
 

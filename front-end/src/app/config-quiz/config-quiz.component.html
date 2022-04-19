@@ -1,45 +1,45 @@
-<h2><u>Configuration</u></h2>
-<h3><u>Handicap visuel</u></h3>
-<div class="Protanopie">
-    <label for="protanopie">Protanopie</label>
-    <input type = "checkbox" id="protanopie" name="protanopie">
-</div>
-<div class="Glaucome">
-    <label for="glaucome">Glaucome</label>
-    <input type = "checkbox" id="glaucome" name="glaucome">
-</div>
-<h3><u>Handicap moteur</u></h3>
-<div class="Arthrose">
-    <label for="arthrose">Arthrose</label>
-    <input type = "checkbox" id="arthrose" name="arthrose">
-</div>
-<div class="Temps">
-    <p>Temps sur une réponse :</p>
-    <div class="ChoixTemps">
-        <select id="time">
-            <option value="unesec">1 sec</option>
-            <option value="deuxsec" selected>2 sec</option>
-            <option value="troissec">3 sec</option>
-            <option value="quatresec">4 sec</option>
-            <option value="cinqsec">5 sec</option>
-          </select>
+<form method="get" >
+    <h2><u>Configuration</u></h2>
+    <h3><u>Handicap visuel</u></h3>
+    <div class="Protanopie">
+        <label for="protanopie">Protanopie</label>
+        <input type = "checkbox" id="protanopie" name="protanopie">
     </div>
-</div>
+    <div class="Glaucome">
+        <label for="glaucome">Glaucome</label>
+        <input type = "checkbox" id="glaucome" name="glaucome">
+    </div>
+    <h3><u>Handicap moteur</u></h3>  
+    <div class="Arthrose">
+        <label for="arthrose">Arthrose</label>
+        <input type = "checkbox" id="arthrose" name="arthrose">
+    </div>
+    <div class="Temps">
+        <p>Temps sur une réponse :</p>
+        <div class="ChoixTemps">
+            <select id="time">
+                <option value="unesec">1 sec</option>
+                <option value="deuxsec" selected>2 sec</option>
+                <option value="troissec">3 sec</option>
+                <option value="quatresec">4 sec</option>
+                <option value="cinqsec">5 sec</option>
+            </select>
+        </div>
+    </div>
 
 
-<div class="Taille">
-    <div class="TitreTaillePolice">
-        <h4> Taille de la police</h4>
-    </div>
+    <div class="Taille">
+        <div class="TitreTaillePolice">
+            <h4> Taille de la police</h4>
+        </div>
     
-    <div class="Curseur">
-        <input type="range" min="2" max="50" value="30" step ="1" aria-label="Sélectionner la taille de la police" oninput="document.getElementById('AfficheRange').textContent=value" />
-        <span id="AfficheRange">30</span>
+        <div class="Curseur">
+            <input type="range" min="2" max="50" value="30" step ="1" aria-label="Sélectionner la taille de la police" oninput="document.getElementById('AfficheRange').textContent=value" />
+            <span id="AfficheRange">30</span>
+        </div>
     </div>
-</div>
 
-<ng-container *ngIf="quiz">
-  <button class="button-card" routerLink="/config-quiz/{{quiz.id}}">Réinitialiser</button>
-  <button class="button-card" routerLink="/config-quiz/{{quiz.id}}">Enregistrer</button>
-  <button class="button-card" routerLink="/lancement-quiz/{{quiz.id}}">Retour au quiz</button>
-</ng-container>
+    <button type="reset" class="button-card" routerLink="/config-quiz/{{quiz.id}}">Réinitialiser</button>
+    <button type="submit" class="button-card" routerLink="/config-quiz/{{quiz.id}}">Enregistrer</button>
+    <button class="button-card" routerLink="/lancement-quiz/{{quiz.id}}">Retour au quiz</button>
+</form>
