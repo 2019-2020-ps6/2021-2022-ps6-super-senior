@@ -39,12 +39,16 @@
           <label>
             Réponse correcte
             <input type="text" [formControlName]="'value'">
+            Image réponse
+            <input type="text" [formControlName]="'imageAnswer'">
           </label>
         </div>
         <div class="answer-form" [formGroupName]="i" span *ngIf="i>0" >
           <label>
             Réponse fausse
             <input type="text" [formControlName]="'value'">
+            Image réponse
+            <input type="text" [formControlName]="'imageAnswer'">
           </label>
         </div>
       </div>

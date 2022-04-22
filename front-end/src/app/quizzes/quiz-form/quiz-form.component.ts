@@ -47,7 +47,8 @@ export class QuizFormComponent implements OnInit {
   private initializeQuestionForm(): void {
     this.questionForm = this.formBuilder.group({
       label: ['', Validators.required],
-      answers: this.formBuilder.array([])
+      answers: this.formBuilder.array([]),
+      image:['']
     });
     this.addAnswer();
     this.addAnswer();

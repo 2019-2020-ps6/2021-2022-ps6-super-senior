@@ -49,9 +49,9 @@ export class JeuComponent implements OnInit {
     let jeuToCreate: Jeu = {
       quizId : this.quiz.id,
       answers : [],
-      userId : "0",
+      userId : "0"
       } as Jeu; 
-    console.log(jeuToCreate.quizId);
+    console.log(jeuToCreate);
     this.jeuService.addJeu(jeuToCreate);
     this.jeu = jeuToCreate;
   }

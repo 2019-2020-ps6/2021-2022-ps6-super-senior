@@ -36,8 +36,8 @@
 .imageQuestion {
     border-radius: 10px;
     text-align: center;
-    width : 150px;
-    height : 150px;
+    max-width: 150px;
+	height: auto;
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -64,4 +64,14 @@
     flex : 1 ;
     flex-basis: 50%;
     justify-content: left;
+}
+
+.imageAnswer{
+    border-radius: 10px;
+    text-align: center;
+    max-width: 150px;
+	height: auto;
+    display: block;
+    margin-left: 10%;
+    margin-right: auto;
 }

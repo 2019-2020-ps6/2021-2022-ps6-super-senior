@@ -36,9 +36,9 @@
 }
 
 .abandon {
-    flex : initial ;
-    flex-basis: 25%;
-    justify-content: right;
+    flex : auto ;
+    flex-basis: 33%;
+    align-items: right;
 }
 
 .button-abandon{

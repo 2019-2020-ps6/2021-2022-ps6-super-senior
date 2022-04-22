@@ -8,8 +8,8 @@
         </span>
     </div>
     <div class="answer-list">
-        <div class="answers" *ngFor="let answer of answersRandom; let i=index">
-            <button class="answer" [ngClass]="configurationService.getColorForProtanopieButton()" (click)="selectAnswer(answer.id);isCorrect(answer.isCorrect)">{{answer.value}}</button>
+        <div class="answers" *ngFor="let answer of question.answers; let i=index">
+            <button class="answer" [ngClass]="configurationService.getColorForProtanopieButton()" (click)="selectAnswer(answer.id);isCorrect(answer.isCorrect)">{{answer.value}} <img class="imageAnswer" *ngIf="answer.imageAnswer" src={{answer.imageAnswer}}> </button>
        </div>
     </div>
     
