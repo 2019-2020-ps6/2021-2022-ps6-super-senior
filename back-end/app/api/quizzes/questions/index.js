@@ -34,7 +34,9 @@ router.post('/', (req, res) => {
     let question = Question.create({ label: req.body.label, quizId, image: req.body.image })
     // If answers have been provided in the request, we create the answer and update the response to send.
     if (req.body.answers && req.body.answers.length > 0) {
-      const answers = req.body.answers.map((answer) => Answer.create({ ...answer, questionId: question.id }))
+      const answers = req.body.answers.map((answer) => { 
+        Answer.create({ value: answer.value, isCorrect: answer.isCorrect, imageAnswer: answer.imageAnswer, questionId: question.id })
+      })
       question = { ...question, answers }
     }
     res.status(201).json(question)
