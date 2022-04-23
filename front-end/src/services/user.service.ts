@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Subject } from 'rxjs';
 import { User } from '../models/user.model';
 import { serverUrl, httpOptionsBase } from '../configs/server.config';
+import { ConfigurationService } from './configuration.service';
 
 @Injectable({
   providedIn: 'root'
@@ -25,7 +26,7 @@ export class UserService {
 
   private httpOptions = httpOptionsBase;
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, public configurationService : ConfigurationService) {
     this.retrieveUsers();
   }
 
@@ -44,6 +45,9 @@ export class UserService {
     const urlWithId = this.userUrl + '/' + userId;
     this.http.get<User>(urlWithId).subscribe((user) => {
       this.userSelected$.next(user);
+      this.configurationService.arthrose = user.arthrose;
+      this.configurationService.protanopie = user.protanopie;
+      this.configurationService.glaucome = user.glaucome;
     });
   }
 

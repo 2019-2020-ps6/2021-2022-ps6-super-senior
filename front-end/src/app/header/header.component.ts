@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ConfigurationService } from 'src/services/configuration.service';
+import { UserService } from 'src/services/user.service';
 
 
 @Component({
@@ -9,7 +10,11 @@ import { ConfigurationService } from 'src/services/configuration.service';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(public configurationService: ConfigurationService) { }
+  private user: string = "User";
+
+  constructor(public configurationService: ConfigurationService, public userService: UserService) {
+    userService.userSelected$.subscribe((user) => this.user = user.firstName);
+  }
 
   ngOnInit(): void {
   }
