@@ -22,6 +22,7 @@
     margin-bottom: 0.1%;
     margin-top: 0.1%;
     justify-items: left;
+    align-items: center;
 }
 
 .answerSmall{
@@ -88,7 +89,6 @@
 
 .imageAnswerSmall{
     border-radius: 10px;
-    text-align: center;
     max-width: 80px;
     max-height: 120px;
     width: auto;
@@ -116,5 +116,43 @@
 	height: auto;
     display: block;
     margin-left: 10%;
+    margin-right: auto;
+}
+
+.audioAnswer {
+    border : 3pt solid blue;
+    border-radius: 15px;
+    top: 0%;
+    margin: 0%;
+}
+
+.audioQuestion {
+    position: relative;
+    border : 2pt solid blue;
+    border-radius: 15px;
+    top: 0%;
+    margin: 0%;
+}
+
+.imageAudioAnswer{
+    border-radius: 10px;
+    max-width: 40px;
+    max-height: 40px;
+    width: auto;
+	height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.imageAudioQuestion{
+    border-radius: 5px;
+    text-align: center;
+    max-width: 30px;
+    max-height: 30px;
+    width: auto;
+	height: auto;
+    display: block;
+    margin-left: auto;
     margin-right: auto;
 }

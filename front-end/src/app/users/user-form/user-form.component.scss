@@ -1,1 +1,49 @@
 @import '../../../styles/card.scss';
+
+.choix{
+    margin-left: 4em;
+}
+
+.identite {
+    display: flex;
+}
+
+.prenom {
+    flex : 1;
+    flex-basis: 33%;
+    margin-right : 4em;
+}
+
+.nom {
+    flex : 1;
+    flex-basis: 33%;
+    margin-right: 10%;
+}
+
+.photo{
+    flex : 1;
+    flex-basis: 33%;
+    margin-right : 4em;
+}
+
+.troubles {
+    display: flex;
+    width: 40em;
+}
+
+.choixTroubles {
+    flex : 1;
+    flex-basis: 50%;
+}
+
+.indicationsTroubles {
+    margin-top: 3em;
+    border : 1pt solid black;
+    flex : 1;
+    flex-basis: 50%;
+    font-size: 15px;
+}
+
+.description {
+    max-width: 18em;
+}

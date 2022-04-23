@@ -1,16 +1,67 @@
 <div class="card">
     <h2>Create a new user</h2>
     <form class="user-form" [formGroup]="userForm">
-      <label for="firstName">
-        First name <br>
-        <input class="input-custom" type="text" id="firstName" [formControlName]="'firstName'">
-      </label>
-      <br>
-      <label for="lastName">
-        Last name <br>
-        <input class="input-custom" type="text" id="lastName" [formControlName]="'lastName'">
-      </label>
-      <br>
+      <div class="identite">
+        <div class="prenom">
+          <label for="firstName">
+            Prénom <br>
+            <input class="input-custom" type="text" id="firstName" [formControlName]="'firstName'">
+          </label>
+        </div>
+        <div class="nom">
+          <label for="lastName">
+            Nom <br>
+            <input class="input-custom" type="text" id="lastName" [formControlName]="'lastName'">
+          </label>
+        </div>
+        <div class="photo">
+          <label for="photo">
+            Photo <br>
+            <input class="input-custom" type="text" id="photo" [formControlName]="'photo'">
+          </label>
+        </div>
+      </div>
+      <div class="troubles">
+        <div class="choixTroubles">
+          <h2>
+            Handicapes visuels : 
+          </h2>
+          <div class="protanopie">
+            <label for="protanopie">Protanopie : </label>
+                <input class="choix" type ="checkbox" id="protanopie" name="protanopie" (click)="selectProtanopie()">
+                <span>Oui</span>
+          </div>
+          <div class="glaucome">
+            <label for="glaucome">Glaucome : </label>
+                <input class="choix" type = "checkbox" id="glaucome" name="glaucome" (click)="selectGlaucome()">
+                <span>Oui</span>
+          </div>
+          <h2>
+            Handicape moteur : 
+          </h2>
+          <div class="arthrose">
+            <label for="arthrose">Arthrose : </label>
+                <input class="choix" type = "checkbox" id="arthrose" name="arthrose" (click)="selectArthrose()">
+                <span>Oui</span>
+          </div>
+          <div *ngIf="arthrose" id="ChoixTemps" class="ChoixTemps">
+            Temps pour choisir la réponse : 
+            <select id="time" (change)="newTime($event)">
+                <option value="1">1 sec</option>
+                <option value="2" selected>2 sec</option>
+                <option value="3">3 sec</option>
+                <option value="5">4 sec</option>
+                <option value="5">5 sec</option>
+            </select>
+          </div>
+        </div>
+        <span *ngIf="protanopie || glaucome || arthrose"class="indicationsTroubles">
+          <div class="description" *ngIf="protanopie">Protanopie : <br> {{indicationProtanopie}}<br><br></div>
+          <div class="description" *ngIf="glaucome">Glaucome : <br>{{indicationGlaucome}}<br><br></div>
+          <div class="description" *ngIf="arthrose">Arthrose : <br>{{indicationArthrose}}<br><br></div>
+        </span>
+      </div>
+    <br>
       <button type="submit" class="button-card" (click)="addUser()">Create</button>
     </form>
   </div>

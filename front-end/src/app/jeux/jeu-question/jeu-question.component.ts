@@ -55,6 +55,14 @@ export class JeuQuestionComponent implements OnInit {
   
     return array;
   }
+
+  lecture(texte : string){
+    const synth = window.speechSynthesis;
+    const utterThis = new SpeechSynthesisUtterance(texte);
+    utterThis.lang = 'fr-FR';
+    synth.speak(utterThis);
+  }
+
   
 
 }

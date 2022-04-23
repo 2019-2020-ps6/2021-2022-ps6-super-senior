@@ -1,1 +1,30 @@
 @import '../../../styles/card.scss';
+
+.photoUser{
+    border-radius: 10px;
+    max-width: 60px;
+    max-height: 80px;
+    width: auto;
+	height: auto;
+    display: block;
+    margin-left: 10%;
+    margin-right: auto;
+}
+
+.identite {
+    display: flex;
+}
+
+.photo {
+    flex: 1;
+    flex-basis: 50%;
+    margin-top: 10%;
+}
+
+.nom {
+    margin-top: 10%;
+    flex: 1;
+    flex-basis: 50%;
+    font-size: 18px;
+    font-weight: bold;
+}
