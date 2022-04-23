@@ -41,24 +41,26 @@ export class JeuComponent implements OnInit {
 
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
-    console.log("ngInit");
   }
 
   addJeu() : void {
     var reponse: string[] = [];
-    let jeuToCreate: Jeu = {
+    const jeuToCreate: Jeu = {
       quizId : this.quiz.id,
       answers : [],
-      userId : "0"
+      userId : '0'
       } as Jeu; 
-    console.log(jeuToCreate);
-    this.jeuService.addJeu(jeuToCreate);
     this.jeu = jeuToCreate;
   }
 
   answerSelected(answersId : string): void {
     this.jeu.answers.push(answersId);
     this.indexQuestion++;
+    if(this.indexQuestion==this.quiz.questions.length) { 
+      this.jeuService.addJeu(this.jeu);
+      return;
+    }
+    this.shuffle(this.quiz.questions[this.indexQuestion].answers);
   }
 
   isCorrect(isCorrect : boolean) : void {
@@ -66,6 +68,24 @@ export class JeuComponent implements OnInit {
     if(isCorrect){
       this.score++;
     }
+  }
+
+  shuffle(array): any {
+    let currentIndex = array.length,  randomIndex;
+  
+    // While there remain elements to shuffle.
+    while (currentIndex != 0) {
+  
+      // Pick a remaining element.
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex--;
+  
+      // And swap it with the current element.
+      [array[currentIndex], array[randomIndex]] = [
+        array[randomIndex], array[currentIndex]];
+    }
+  
+    return array;
   }
 
 }

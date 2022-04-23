@@ -29,7 +29,8 @@ router.get('/', (req, res) => {
   
   router.post('/', (req, res) => {
     try {
-      const jeu = Jeu.create({ ...req.body })
+      console.log(req.body)
+      const jeu = Jeu.create({ userId: req.body.userId, quizId: req.body.quizId, answer: req.body.answers })
       res.status(201).json(jeu)
     } catch (err) {
       manageAllErrors(res, err)

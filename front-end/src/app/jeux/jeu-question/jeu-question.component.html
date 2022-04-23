@@ -8,9 +8,26 @@
         </span>
     </div>
     <div class="answer-list">
-        <div class="answers" *ngFor="let answer of question.answers; let i=index">
-            <button class="answer" [ngClass]="configurationService.getColorForProtanopieButton()" (click)="selectAnswer(answer.id);isCorrect(answer.isCorrect)">{{answer.value}} <img class="imageAnswer" *ngIf="answer.imageAnswer" src={{answer.imageAnswer}}> </button>
-       </div>
+        <ng-container *ngIf="question.answers.length>2">
+            <div class="answers" *ngFor="let answer of question.answers; let i=index">
+                <button class="answerSmall" *ngIf="!answer.imageAnswer" [ngClass]="configurationService.getColorForProtanopieButton()" (click)="selectAnswer(answer.id);isCorrect(answer.isCorrect)">{{answer.value}} </button>
+                <button class="answerImageSmall" *ngIf="answer.imageAnswer" [ngClass]="configurationService.getColorForProtanopieButton()"
+                 (click)="selectAnswer(answer.id);isCorrect(answer.isCorrect)">
+                    {{answer.value}}
+                    <img class="imageAnswerSmall" src={{answer.imageAnswer}}>
+                </button>
+            </div>
+        </ng-container>
+        <ng-container *ngIf="question.answers.length<=2">
+            <div class="answers" *ngFor="let answer of question.answers; let i=index">
+                <button class="answerBig" *ngIf="!answer.imageAnswer" [ngClass]="configurationService.getColorForProtanopieButton()" (click)="selectAnswer(answer.id);isCorrect(answer.isCorrect)">{{answer.value}} </button>
+                <button class="answerImageBig" *ngIf="answer.imageAnswer" [ngClass]="configurationService.getColorForProtanopieButton()"
+                    (click)="selectAnswer(answer.id);isCorrect(answer.isCorrect)">
+                    {{answer.value}}
+                    <img class="imageAnswerBig" src={{answer.imageAnswer}}>
+                </button>
+            </div>
+        </ng-container>
     </div>
     
 </div>

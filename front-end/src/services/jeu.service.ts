@@ -32,7 +32,6 @@ export class JeuService{
     }
 
     addJeu(jeu: Jeu):void{
-        console.log(this.jeuURL + jeu.id);
         this.http.post<Jeu>(this.jeuURL,jeu,this.httpOptions).subscribe(()=>this.retrieveJeux());
     }
 
