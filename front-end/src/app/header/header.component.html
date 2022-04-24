@@ -7,7 +7,7 @@
             <li><button class="secondaire" [ngClass]="configurationService.getColorForProtanopieButton()" routerLink="/user-info">Mon Compte</button></li>
             <li><button class="secondaire" [ngClass]="configurationService.getColorForProtanopieButton()" routerLink="/user-list">Mes Patients</button></li>
             <li><button class="secondaire" [ngClass]="configurationService.getColorForProtanopieButton()" routerLink="/user-list">Statistiques</button></li>
-            <li><button class="secondaire" [ngClass]="configurationService.getColorForProtanopieButton()" routerLink="/user-list">Déconnexion</button></li>
+            <li><button class="secondaire" [ngClass]="configurationService.getColorForProtanopieButton()" (click)="deconnexion()" routerLink="/accueil">Déconnexion</button></li>
         </ul>
     </div>
 </div>

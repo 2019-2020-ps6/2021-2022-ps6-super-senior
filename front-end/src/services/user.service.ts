@@ -66,4 +66,12 @@ export class UserService {
     const urlWithId = this.userUrl + '/' + user.id;
     this.http.put<User>(urlWithId, user).subscribe(() => this.retrieveUsers());
   }
+
+  deconnexion(){
+    this.userCurrent$.next(null);
+      this.configurationService.arthrose = false;
+      this.configurationService.protanopie = false;
+      this.configurationService.glaucome = false;
+      this.configurationService.temps = 5;
+  }
 }

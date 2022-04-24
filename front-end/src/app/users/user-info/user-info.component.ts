@@ -42,6 +42,11 @@ import { Router, ActivatedRoute } from '@angular/router';
         this.configurationService.protanopie = this.user.protanopie;
         this.configurationService.glaucome = this.user.glaucome;
         this.configurationService.arthrose = this.user.arthrose;
+        this.configurationService.temps = this.user.temps;
         this.userService.updateUser(this.user);
+      }
+
+      delete(){
+        this.userService.deleteUser(this.user);
       }
   }

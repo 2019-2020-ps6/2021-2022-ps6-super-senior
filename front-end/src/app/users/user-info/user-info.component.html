@@ -57,6 +57,10 @@
             </span>
           </div>
           <button class="button-card" (click)="save()">Sauvegarder</button>
+          <button class="button-card" (click)="delete()">Supprimer</button>
           <br>
     </div>
+</div>
+<div class="aucunCompte" *ngIf="!user.firstName">
+  Aucun compte sélectionné.
 </div>

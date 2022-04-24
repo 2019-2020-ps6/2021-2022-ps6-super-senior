@@ -19,4 +19,9 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  deconnexion(){
+    this.userService.deconnexion();
+    this.user = "User";
+  }
+
 }
