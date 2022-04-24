@@ -15,6 +15,8 @@ export class ConfigurationService {
 
     arthrose: boolean = false;
 
+    temps: number = 2;
+
     private httpOptions = httpOptionsBase;
 
     constructor(private http: HttpClient) {
@@ -36,5 +38,9 @@ export class ConfigurationService {
 
     getTailleForArthrose() {
         return {'taille-arthrose': this.arthrose, 'taille-normal': !this.arthrose}
+    }
+
+    getTemps(){
+        return{'temps': this.temps}
     }
 }

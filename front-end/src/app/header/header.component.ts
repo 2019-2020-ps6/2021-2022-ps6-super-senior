@@ -10,7 +10,7 @@ import { UserService } from 'src/services/user.service';
 })
 export class HeaderComponent implements OnInit {
 
-  private user: string = "User";
+  user: string = "User";
 
   constructor(public configurationService: ConfigurationService, public userService: UserService) {
     userService.userSelected$.subscribe((user) => this.user = user.firstName);

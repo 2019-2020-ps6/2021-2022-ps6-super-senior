@@ -20,6 +20,8 @@ export class JeuService{
 
     private httpOptions = httpOptionsBase;
 
+    public taille: number = 0;
+
     constructor(private http: HttpClient) {
         this.retrieveJeux();
     }
@@ -45,7 +47,15 @@ export class JeuService{
     deleteJeu(jeu: Jeu): void {
         const urlWithId = this.jeuURL + '/' + jeu.id;
         this.http.delete<Jeu>(urlWithId, this.httpOptions).subscribe(() => this.retrieveJeux());
-      }
+    }
+
+    getSizeForText() {
+        if (this.taille == 0) return 'text-medium';
+        else if (this.taille == 1) return 'text-big';
+        else if (this.taille == 2) return 'text-bigbig';
+    }
+
+    
 
 
 }
