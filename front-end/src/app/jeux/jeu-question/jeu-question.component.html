@@ -11,7 +11,7 @@
     <div class="answer-list">
         <ng-container *ngIf="question.answers.length>2">
             <div class="answers" *ngFor="let answer of question.answers; let i=index">
-                <button class="answerSmall" *ngIf="!answer.imageAnswer" [ngClass]="configurationService.getColorForProtanopieButton()" (click)="selectAnswer(answer.id);isCorrect(answer.isCorrect)">{{answer.value}} </button>
+                <button [ngClass]="configurationService.getColorForProtanopieGlaucomeButtonSmall()" *ngIf="!answer.imageAnswer" (click)="selectAnswer(answer.id);isCorrect(answer.isCorrect)">{{answer.value}} </button>
                 <button class="answerImageSmall" *ngIf="answer.imageAnswer" [ngClass]="configurationService.getColorForProtanopieButton()"
                  (click)="selectAnswer(answer.id);isCorrect(answer.isCorrect)">
                     {{answer.value}}
@@ -22,7 +22,7 @@
         </ng-container>
         <ng-container *ngIf="question.answers.length<=2">
             <div class="answers" *ngFor="let answer of question.answers; let i=index">
-                <button class="answerBig" *ngIf="!answer.imageAnswer" [ngClass]="configurationService.getColorForProtanopieButton()" (click)="selectAnswer(answer.id);isCorrect(answer.isCorrect)">{{answer.value}} </button>
+                <button *ngIf="!answer.imageAnswer" [ngClass]="configurationService.getColorForProtanopieGlaucomeButtonBig()" (click)="selectAnswer(answer.id);isCorrect(answer.isCorrect)">{{answer.value}} </button>
                 <button class="answerImageBig" *ngIf="answer.imageAnswer" [ngClass]="configurationService.getColorForProtanopieButton()"
                     (click)="selectAnswer(answer.id);isCorrect(answer.isCorrect)">
                     {{answer.value}}

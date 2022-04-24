@@ -22,7 +22,8 @@ export class JeuQuestionComponent implements OnInit {
   @Output()
   answerCorrect: EventEmitter<boolean> = new EventEmitter<boolean>();
 
-  constructor(public configurationService: ConfigurationService) {}
+  constructor(public configurationService: ConfigurationService) {
+  }
 
   ngOnInit(): void {
     console.log(this.question.id);

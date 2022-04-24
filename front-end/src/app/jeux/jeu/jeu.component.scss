@@ -6,27 +6,6 @@
     align-content: center;
 }
 
-.top-jeu {
-    display: flex;
-    flex-wrap: wrap;
-    margin-left: auto;
-    margin-right: auto;
-    justify-content: center;
-    text-align: center;
-}
-
-.nom-quiz {
-    flex : auto ;
-    flex-basis: 33%;
-    text-align:justify;
-}
-
-.score {
-    flex : auto ;
-    flex-basis: 33%;
-    text-align:justify;
-}
-
 .fin-quiz{
     flex : initial ;
     flex-basis: 25%;
@@ -35,15 +14,8 @@
     padding: 32px 48px;
 }
 
-.abandon {
-    flex : auto ;
-    flex-basis: 33%;
-    align-items: right;
-}
-
 .button-abandon{
     background-color: rgb(160, 160, 160);
-    padding: 32px 48px;
 }
 
 .fin{

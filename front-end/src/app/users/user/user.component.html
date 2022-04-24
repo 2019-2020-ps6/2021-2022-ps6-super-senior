@@ -10,8 +10,8 @@
     </div>
     <div class="Troubles">
         Trouble(s) <br>
-        <span class="protanopie" *ngIf="user.protanopie"> Protanopie </span> <br>
-        <span class="arthrose" *ngIf="user.arthrose"> Arthrose ({{user.temps}} sec(s)) </span> <br>
+        <span class="protanopie" *ngIf="user.protanopie"> Protanopie <br> </span> 
+        <span class="arthrose" *ngIf="user.arthrose"> Arthrose ({{user.temps}} sec(s)) <br> </span> 
         <span class="glaucome" *ngIf="user.glaucome"> Glaucome </span>
     </div>
     <button class="button-card" (click)="select()" routerLink="/accueil">Select</button>

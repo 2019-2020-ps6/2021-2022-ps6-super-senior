@@ -1,5 +1,5 @@
 <body [ngClass]="configurationService.getCentreForGlaucome()">
-<div class="top-jeu">
+<div class="top-jeu" [ngClass]="configurationService.getGlaucomeForQuiz()">
     <h2 class="nom-quiz" [ngClass]="configurationService.getColorForProtanopieText()">
         {{quiz.name}}
     </h2>
@@ -10,7 +10,7 @@
         <button class="button-card" [ngClass]="configurationService.getColorForProtanopieButton()" routerLink="/fin-quiz">Terminer le quiz</button>
     </div>
     <div class="abandon" *ngIf="indexQuestion!=quiz.questions.length">
-        <button class="button-abandon" [ngClass]="configurationService.getColorForProtanopieButton()" routerLink="/accueil">Abandonner</button>
+        <button class="button-abandon" [ngClass]="configurationService.getAbandonSize()" routerLink="/accueil">Abandonner</button>
     </div>
 </div>
 <div class="fin" [ngClass]="configurationService.getColorForProtanopieText()" *ngIf="indexQuestion===quiz.questions.length">

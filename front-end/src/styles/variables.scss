@@ -30,7 +30,8 @@ $protanopie : #085394;
 
 .color-protanopie-button {
   border : 1px solid blue;
-  background-color: white
+  background-color: white;
+  padding: 1em;
 }
 
 .color-normal-button {
@@ -43,19 +44,60 @@ $protanopie : #085394;
   text-align: center;
 }
 
-/**
-
-.position-normal {
-
+.top-jeu-glaucome {
+  display: flex; 
+  font-size: 12px;
+  text-align: justify;
+  justify-content: space-between;
 }
 
-*/
-/**
-.taille-arthrose {
-
+.top-jeu {
+  display: flex;
+  flex-wrap: wrap;
+  text-align: justify;
+  justify-content: space-between;
+  padding: 32px 48px;
 }
 
-.taille-normal {
-
+.answer-glaucome {
+  border-radius: 15px;
+  padding: 1em;
+  font-size: 15px;
+  font-weight: bold;
+  margin: 0%;
 }
-*/
+
+.answerSmall{
+  border-radius: 15px;
+  padding: 60px 90px;
+  font-size: 20px;
+  font-weight: bold;
+  margin: 0%;
+}
+
+.answerBig{
+  border-radius: 15px;
+  padding: 80px 120px;
+  font-size: 20px;
+  font-weight: bold;
+  margin: 0%;
+}
+
+.color-protanopie-question {
+  border : 3px solid blue;
+  background-color: white;
+}
+
+.color-normal-question {
+  border: solid 3px black;
+  background-color: steelblue;
+}
+
+.abandon-glaucome {
+  margin-top: 10px;
+  padding: 10px 15px;
+}
+
+.abandon-normal {
+  padding: 32px 48px;
+}
