@@ -21,6 +21,8 @@ export class QuizService {
    */
   private quizzes: Quiz[] = QUIZ_LIST;
 
+  private quiz: Quiz = {} as Quiz;
+
   /*
    Observable which contains the list of the quiz.
    Naming convention: Add '$' at the end of the variable name to highlight it as an Observable.
@@ -29,6 +31,8 @@ export class QuizService {
     = new BehaviorSubject(this.quizzes);
 
   public quizSelected$: Subject<Quiz> = new Subject();
+
+  public quizCurrent$: BehaviorSubject<Quiz> = new BehaviorSubject(this.quiz);
 
   private quizUrl = serverUrl + '/quizzes';
   private questionsPath = 'questions';
@@ -54,6 +58,7 @@ export class QuizService {
     const urlWithId = this.quizUrl + '/' + quizId;
     this.http.get<Quiz>(urlWithId).subscribe((quiz) => {
       this.quizSelected$.next(quiz);
+      this.quizCurrent$.next(quiz);
     });
   }
 

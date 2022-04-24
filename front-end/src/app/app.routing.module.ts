@@ -10,8 +10,10 @@ import { JeuComponent } from './jeux/jeu/jeu.component';
 import { JeuQuestionComponent } from './jeux/jeu-question/jeu-question.component';
 import { FinQuizComponent } from './fin-quiz/fin-quiz.component';
 import { QuizFormComponent } from './quizzes/quiz-form/quiz-form.component';
+import { UserInfoComponent } from './users/user-info/user-info.component';
 
 const routes: Routes = [
+    {path: 'user-info', component: UserInfoComponent},
     {path: 'lancement-quiz/:id', component: LancementQuizComponent},
     {path: 'user-list', component: UserListComponent},
     {path: 'quiz-list', component: QuizListComponent},

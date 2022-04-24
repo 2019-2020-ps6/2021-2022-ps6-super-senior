@@ -1,0 +1,47 @@
+@import '../../../styles/card.scss';
+
+.compte {
+    text-align: center;
+    font-size : 3em;
+    font-weight: bold;
+    margin-top: 4%;
+    margin-bottom: 4%;
+}
+
+.identite {
+    display: flex;
+    text-align: center;
+}
+
+.photo {
+    flex :1;
+    flex-basis: 33%;
+}
+
+.photoUser{
+    border-radius: 10px;
+    max-width: 100px;
+    max-height: 120px;
+    width: auto;
+	height: auto;
+    display: block;
+    margin-left: 10%;
+    margin-right: auto;
+}
+
+.prenom {
+    flex : 1;
+    flex-basis: 33%;
+    text-align: center;
+}
+
+.nom{
+    flex : 1;
+    flex-basis: 33%;
+    text-align: center;
+}
+
+.user-info{
+    background-color: white;
+    border-radius: 5%;
+}

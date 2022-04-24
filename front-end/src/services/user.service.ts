@@ -13,6 +13,7 @@ export class UserService {
    The list of user.
    */
   private users: User[] = [];
+  private user: User = {} as User;
 
   /*
    Observable which contains the list of the user.
@@ -21,6 +22,8 @@ export class UserService {
     = new BehaviorSubject([]);
 
   public userSelected$: Subject<User> = new Subject();
+
+  public userCurrent$: BehaviorSubject<User> = new BehaviorSubject(this.user);
 
   private userUrl = serverUrl + '/users';
 
@@ -45,6 +48,7 @@ export class UserService {
     const urlWithId = this.userUrl + '/' + userId;
     this.http.get<User>(urlWithId).subscribe((user) => {
       this.userSelected$.next(user);
+      this.userCurrent$.next(user);
       this.configurationService.arthrose = user.arthrose;
       this.configurationService.protanopie = user.protanopie;
       this.configurationService.glaucome = user.glaucome;

@@ -31,8 +31,8 @@ export class JeuComponent implements OnInit {
     }
     );*/
     const id = this.route.snapshot.paramMap.get('id');
-    this.quiz = this.quizService.getQuiz(id) as Quiz;
-    this.quizService.quizSelected$.subscribe((quiz) => {
+    //this.quiz = this.quizService.getQuiz(id) as Quiz;
+    this.quizService.quizCurrent$.subscribe((quiz) => {
       this.quiz = quiz;
     });
     this.addJeu();
