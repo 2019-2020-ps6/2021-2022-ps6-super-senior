@@ -3,7 +3,7 @@
   <div class="quiz">
     <form class="quiz-form" [formGroup]="quizForm">
       <!--<button type="submit" class="button-card" (click)="addQuiz()">Créer Quiz</button> -->
-      <button type="submit" class="button-card" routerLink="/accueil">Créer Quiz</button>
+      <button type="submit" class="button-card" routerLink="/accueil">Accueil</button>
       <br>
       <label for="title">
         Title <br>
@@ -46,7 +46,7 @@
             </div>
           </div>
         </div>
-        <button type="submit" class="button-card" (click)="addQuestion()">Ajout Question</button>
+        <button type="submit" class="button-card" (click)="addQuestion()">{{text}}</button>
       </form>
     </div>
   </div>

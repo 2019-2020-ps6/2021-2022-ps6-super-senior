@@ -11,6 +11,11 @@ import { ConfigurationService } from 'src/services/configuration.service';
 })
 export class JeuQuestionComponent implements OnInit {
 
+  timeLeft: number = 5;
+  interval;
+  answerHover: Answer;
+  answerId: string;
+
   @Input()
   question: Question;
 
@@ -61,6 +66,32 @@ export class JeuQuestionComponent implements OnInit {
     const utterThis = new SpeechSynthesisUtterance(texte);
     utterThis.lang = 'fr-FR';
     synth.speak(utterThis);
+  }
+
+  startTimer(answer: Answer, answersId: string) : void {
+    this.interval = setInterval(() => {
+      if(this.timeLeft > 0) {
+        this.timeLeft--;
+      }
+      if(this.timeLeft==0){
+        this.answerHover=answer;
+        this.answerId=answersId;
+        this.stopTimer();
+      }
+    },1000)
+    this.answerHover=answer;
+    this.answerId=answersId;
+    console.log(this.timeLeft);
+  
+  }
+  
+  stopTimer() {
+    if(this.timeLeft ==0){
+      this.selectAnswer(this.answerId);
+      this.isCorrect(this.answerHover.isCorrect)
+    }
+    this.timeLeft=5;
+    clearInterval(this.interval);
   }
 
   

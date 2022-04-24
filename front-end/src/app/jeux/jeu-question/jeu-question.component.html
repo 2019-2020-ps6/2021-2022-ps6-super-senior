@@ -1,6 +1,6 @@
 <div class="parent"> 
     <div class="label">
-        <h2 class="labelQuestion" [ngClass]="configurationService.getColorForProtanopieText()">
+        <h2 class="labelQuestion" [ngClass]="configurationService.getColorForProtanopieText()" [ngClass]="configurationService.getTailleForArthrose()">
             {{question.label}} 
             <button class="audioQuestion" (click)="lecture(question.label)"><img class="imageAudioQuestion" src="https://cdn.icon-icons.com/icons2/910/PNG/512/headphones_icon-icons.com_71177.png"></button>
         </h2>
@@ -11,9 +11,9 @@
     <div class="answer-list">
         <ng-container *ngIf="question.answers.length>2">
             <div class="answers" *ngFor="let answer of question.answers; let i=index">
-                <button class="answerSmall" *ngIf="!answer.imageAnswer" [ngClass]="configurationService.getColorForProtanopieButton()" (click)="selectAnswer(answer.id);isCorrect(answer.isCorrect)">{{answer.value}} </button>
-                <button class="answerImageSmall" *ngIf="answer.imageAnswer" [ngClass]="configurationService.getColorForProtanopieButton()"
-                 (click)="selectAnswer(answer.id);isCorrect(answer.isCorrect)">
+                <button class="answerSmall" *ngIf="!answer.imageAnswer" [ngClass]="configurationService.getColorForProtanopieButton()" [ngClass]="configurationService.getTailleForArthrose()" (mouseenter)="startTimer(answer, answer.id)" (mouseleave)="stopTimer()" (click)="selectAnswer(answer.id);isCorrect(answer.isCorrect)">{{answer.value}} </button>
+                <button class="answerImageSmall" *ngIf="answer.imageAnswer" [ngClass]="configurationService.getColorForProtanopieButton()" [ngClass]="configurationService.getTailleForArthrose()"
+                (mouseenter)="startTimer(answer, answer.id)" (mouseleave)="stopTimer()" (click)="selectAnswer(answer.id);isCorrect(answer.isCorrect)">
                     {{answer.value}}
                     <img class="imageAnswerSmall" src={{answer.imageAnswer}}>
                 </button>
@@ -22,9 +22,9 @@
         </ng-container>
         <ng-container *ngIf="question.answers.length<=2">
             <div class="answers" *ngFor="let answer of question.answers; let i=index">
-                <button class="answerBig" *ngIf="!answer.imageAnswer" [ngClass]="configurationService.getColorForProtanopieButton()" (click)="selectAnswer(answer.id);isCorrect(answer.isCorrect)">{{answer.value}} </button>
-                <button class="answerImageBig" *ngIf="answer.imageAnswer" [ngClass]="configurationService.getColorForProtanopieButton()"
-                    (click)="selectAnswer(answer.id);isCorrect(answer.isCorrect)">
+                <button class="answerBig" *ngIf="!answer.imageAnswer" [ngClass]="configurationService.getColorForProtanopieButton()" [ngClass]="configurationService.getTailleForArthrose()" (mouseenter)="startTimer(answer, answer.id)" (mouseleave)="stopTimer()" (click)="selectAnswer(answer.id);isCorrect(answer.isCorrect)">{{answer.value}} </button>
+                <button class="answerImageBig" *ngIf="answer.imageAnswer" [ngClass]="configurationService.getColorForProtanopieButton()" [ngClass]="configurationService.getTailleForArthrose()"
+                (mouseenter)="startTimer(answer, answer.id)" (mouseleave)="stopTimer()" (click)="selectAnswer(answer.id);isCorrect(answer.isCorrect)">
                     {{answer.value}}
                     <img class="imageAnswerBig" src={{answer.imageAnswer}}>
                 </button>

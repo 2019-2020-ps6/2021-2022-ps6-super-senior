@@ -43,4 +43,8 @@ export class ConfigurationService {
     getTemps(){
         return{'temps': this.temps}
     }
+    
+    getArthrose(){
+        return this.arthrose;
+    }
 }
