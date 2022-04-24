@@ -20,7 +20,7 @@ export class ConfigQuizComponent implements OnInit {
   public temps: number = 2;
 
   constructor(private route: ActivatedRoute, private quizService: QuizService, public configurationService: ConfigurationService) {
-    this.quizService.quizSelected$.subscribe((quiz) => this.quiz = quiz);
+    this.quizService.quizCurrent$.subscribe((quiz) => this.quiz = quiz);
   }
 
   ngOnInit(): void {

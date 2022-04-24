@@ -4,6 +4,7 @@ import { ControlContainer, FormBuilder, FormGroup, Validators } from '@angular/f
 import { UserService } from '../../../services/user.service';
 import { User } from '../../../models/user.model';
 import { collectExternalReferences } from '@angular/compiler';
+import { ConfigurationService } from 'src/services/configuration.service';
 
 @Component({
   selector: 'app-user-form',
@@ -17,11 +18,8 @@ export class UserFormComponent implements OnInit {
   public glaucome: boolean = false;
   public arthrose: boolean = false;
   public temps: number = 2;
-  public indicationProtanopie: string = "Le texte sera écrit en bleu."
-  public indicationArthrose: string = "Les cases de réponses seront affichées en plus gros.\nIl faut rester un certains temps sur la réponse pour la sélectioner";
-  public indicationGlaucome: string = "Les élements du site seront centrés."
 
-  constructor(public formBuilder: FormBuilder, public userService: UserService) {
+  constructor(public formBuilder: FormBuilder, public userService: UserService, public configurationService: ConfigurationService) {
     this.userForm = this.formBuilder.group({
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],

@@ -4,7 +4,7 @@
     text-align: center;
     font-size : 3em;
     font-weight: bold;
-    margin-top: 4%;
+    margin-top: 1%;
     margin-bottom: 4%;
 }
 
@@ -44,4 +44,26 @@
 .user-info{
     background-color: white;
     border-radius: 5%;
+}
+
+.troubles {
+    display: flex;
+    width: 40em;
+}
+
+.choixTroubles {
+    flex : 1;
+    flex-basis: 50%;
+}
+
+.indicationsTroubles {
+    margin-top: 3em;
+    border : 1pt solid black;
+    flex : 1;
+    flex-basis: 50%;
+    font-size: 15px;
+}
+
+.description {
+    max-width: 18em;
 }

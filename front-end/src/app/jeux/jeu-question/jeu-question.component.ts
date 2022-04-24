@@ -27,10 +27,11 @@ export class JeuQuestionComponent implements OnInit {
   @Output()
   answerCorrect: EventEmitter<boolean> = new EventEmitter<boolean>();
 
-  constructor(public configurationService: ConfigurationService) {}
+  constructor(public configurationService: ConfigurationService) {
+    this.timeLeft = configurationService.temps;
+  }
 
   ngOnInit(): void {
-    console.log(this.question.id);
     this.answersRandom = this.shuffle(this.question.answers);
   }
 
@@ -39,7 +40,6 @@ export class JeuQuestionComponent implements OnInit {
   }
 
   isCorrect(isCorrect : boolean) : void {
-    console.log(isCorrect);
     this.answerCorrect.emit(isCorrect);
   }
 
@@ -81,7 +81,6 @@ export class JeuQuestionComponent implements OnInit {
     },1000)
     this.answerHover=answer;
     this.answerId=answersId;
-    console.log(this.timeLeft);
   
   }
   
@@ -90,7 +89,7 @@ export class JeuQuestionComponent implements OnInit {
       this.selectAnswer(this.answerId);
       this.isCorrect(this.answerHover.isCorrect)
     }
-    this.timeLeft=5;
+    this.timeLeft=this.configurationService.temps;
     clearInterval(this.interval);
   }
 

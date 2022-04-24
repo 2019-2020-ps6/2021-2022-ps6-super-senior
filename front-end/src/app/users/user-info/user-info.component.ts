@@ -37,4 +37,11 @@ import { Router, ActivatedRoute } from '@angular/router';
       newTime(event){
         this.user.temps = event.target.value;
       }
+
+      save(){
+        this.configurationService.protanopie = this.user.protanopie;
+        this.configurationService.glaucome = this.user.glaucome;
+        this.configurationService.arthrose = this.user.arthrose;
+        this.userService.updateUser(this.user);
+      }
   }

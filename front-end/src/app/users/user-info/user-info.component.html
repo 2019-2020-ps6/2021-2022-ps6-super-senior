@@ -1,6 +1,7 @@
 <div class="user-info">
     <div *ngIf="user.firstName">
         <div class="compte">
+            <br>
             Mon compte :
         </div>
         <div class="identite">
@@ -18,25 +19,24 @@
         <div class="troubles">
             <div class="choixTroubles">
               <h2>
-                Handicapes visuels : 
+                Handicaps visuels : 
               </h2>
               <div class="protanopie">
                 <label for="protanopie">Protanopie : </label>
-                    <input *ngIf="!user.protanopie" class="choix" type ="checkbox" id="protanopie" name="protanopie" (click)="selectProtanopie()">
-                    <input *ngIf="user.protanopie" class="choix" type ="checkbox" id="protanopie" name="protanopie" (click)="selectProtanopie()" checked>
+                    <input  class="choix" type ="checkbox" id="protanopie" name="protanopie" (click)="selectProtanopie()" [checked]="user.protanopie">
                     <span>Oui</span>
               </div>
               <div class="glaucome">
                 <label for="glaucome">Glaucome : </label>
-                    <input class="choix" type = "checkbox" id="glaucome" name="glaucome" (click)="selectGlaucome()">
+                    <input class="choix" type = "checkbox" id="glaucome" name="glaucome" (click)="selectGlaucome()" [checked]="user.glaucome">
                     <span>Oui</span>
               </div>
               <h2>
-                Handicape moteur : 
+                Handicap moteur : 
               </h2>
               <div class="arthrose">
                 <label for="arthrose">Arthrose : </label>
-                    <input class="choix" type = "checkbox" id="arthrose" name="arthrose" (click)="selectArthrose()">
+                    <input class="choix" type = "checkbox" id="arthrose" name="arthrose" (click)="selectArthrose()" [checked]="user.arthrose">
                     <span>Oui</span>
               </div>
               <div *ngIf="user.arthrose" id="ChoixTemps" class="ChoixTemps">
@@ -50,11 +50,13 @@
                 </select>
               </div>
             </div>
-            <span *ngIf="protanopie || glaucome || arthrose"class="indicationsTroubles">
-              <div class="description" *ngIf="protanopie">Protanopie : <br> {{indicationProtanopie}}<br><br></div>
-              <div class="description" *ngIf="glaucome">Glaucome : <br>{{indicationGlaucome}}<br><br></div>
-              <div class="description" *ngIf="arthrose">Arthrose : <br>{{indicationArthrose}}<br><br></div>
+            <span *ngIf="user.protanopie || user.glaucome || user.arthrose"class="indicationsTroubles">
+              <div class="description" *ngIf="user.protanopie">Protanopie : <br> {{configurationService.indicationProtanopie}}<br><br></div>
+              <div class="description" *ngIf="user.glaucome">Glaucome : <br>{{configurationService.indicationGlaucome}}<br><br></div>
+              <div class="description" *ngIf="user.arthrose">Arthrose : <br>{{configurationService.indicationArthrose}}<br><br></div>
             </span>
           </div>
+          <button class="button-card" (click)="save()">Sauvegarder</button>
+          <br>
     </div>
 </div>

@@ -17,6 +17,10 @@ export class ConfigurationService {
 
     temps: number = 2;
 
+    public indicationProtanopie: string = "Le texte sera écrit en bleu."
+    public indicationArthrose: string = "Les cases de réponses seront affichées en plus gros.\nIl faut rester un certains temps sur la réponse pour la sélectioner";
+    public indicationGlaucome: string = "Les élements du site seront centrés."
+
     private httpOptions = httpOptionsBase;
 
     constructor(private http: HttpClient) {

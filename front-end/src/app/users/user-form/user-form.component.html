@@ -56,9 +56,9 @@
           </div>
         </div>
         <span *ngIf="protanopie || glaucome || arthrose"class="indicationsTroubles">
-          <div class="description" *ngIf="protanopie">Protanopie : <br> {{indicationProtanopie}}<br><br></div>
-          <div class="description" *ngIf="glaucome">Glaucome : <br>{{indicationGlaucome}}<br><br></div>
-          <div class="description" *ngIf="arthrose">Arthrose : <br>{{indicationArthrose}}<br><br></div>
+          <div class="description" *ngIf="protanopie">Protanopie : <br> {{configurationService.indicationProtanopie}}<br><br></div>
+          <div class="description" *ngIf="glaucome">Glaucome : <br>{{configurationService.indicationGlaucome}}<br><br></div>
+          <div class="description" *ngIf="arthrose">Arthrose : <br>{{configurationService.indicationArthrose}}<br><br></div>
         </span>
       </div>
     <br>
