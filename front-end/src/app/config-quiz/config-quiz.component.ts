@@ -14,15 +14,18 @@ import { Router } from '@angular/router';
 })
 export class ConfigQuizComponent implements OnInit {
 
-  timeLeft: number = 5;
-  interval;
-  path: String;
-
   public quiz: Quiz;
   public protanopie: boolean = this.configurationService.protanopie;
   public glaucome: boolean = this.configurationService.glaucome;
   public arthrose: boolean = this.configurationService.arthrose;
-  public temps: number = 2;
+  public temps: number = this.configurationService.temps;
+  public taille: number = 0;
+
+  timeLeft: number = this.temps;
+  interval;
+  path: String;
+
+
 
   constructor(private route: ActivatedRoute, private quizService: QuizService, public configurationService: ConfigurationService, private router: Router) {
     this.quizService.quizCurrent$.subscribe((quiz) => this.quiz = quiz);
@@ -39,7 +42,7 @@ export class ConfigQuizComponent implements OnInit {
     this.configurationService.glaucome = this.glaucome;
     this.configurationService.arthrose = this.arthrose;
     this.configurationService.temps = this.temps;
-    
+    this.sizeChange();
   }
 
 
@@ -56,7 +59,10 @@ export class ConfigQuizComponent implements OnInit {
   }
 
   newTime(event){
-    this.temps = event.target.value;
+    if (event.target.value != ""){
+      this.temps = event.target.value;
+    }
+    
   }
 
   protanopieIsChecked(): boolean{
@@ -69,6 +75,18 @@ export class ConfigQuizComponent implements OnInit {
 
   arthroseIsChecked(): boolean{
     return this.arthrose;
+  }
+
+  private sizeChange(): void{
+    if (document.getElementById('moyenne')){
+        this.taille = 0;
+    }
+    else if (document.getElementById('grande')){
+      this.taille = 1;
+    }
+    else if (document.getElementById('tres grande')){
+      this.taille = 2;
+    }
   }
 
   startTimer(path: String) : void {

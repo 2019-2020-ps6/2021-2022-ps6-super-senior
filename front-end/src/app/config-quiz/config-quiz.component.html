@@ -18,17 +18,19 @@
       <label [ngClass]="configurationService.getColorForProtanopieText()" for="arthrose">Arthrose</label>
         <input type = "checkbox" id="arthrose" name="arthrose" (click)="selectArthrose()" [checked]="arthroseIsChecked()">
     </div>
-    <div class="Temps">
-      <p [ngClass]="configurationService.getColorForProtanopieText()">Temps sur une réponse :</p>
+    <div class="Temps" *ngIf="arthrose">
+      <p [ngClass]="configurationService.getColorForProtanopieText()" >Temps sur une réponse :</p>
 
-      <div class="ChoixTemps">
+      <div class="ChoixTemps" >
             <select id="time" (change)="newTime($event)">
-                <option value="unesec">1 sec</option>
-                <option value="deuxsec" selected>2 sec</option>
-                <option value="troissec">3 sec</option>
-                <option value="quatresec">4 sec</option>
-                <option value="cinqsec">5 sec</option>
+                <option value="">--Choisissez un temps--</option>
+                <option value="1">1 sec</option>
+                <option value="2">2 sec</option>
+                <option value="3">3 sec</option>
+                <option value="4">4 sec</option>
+                <option value="5">5 sec</option>
             </select>
+            <p [ngClass]="configurationService.getColorForProtanopieText()">Temps actuel : {{temps}} sec</p> 
         </div>
     </div>
 
