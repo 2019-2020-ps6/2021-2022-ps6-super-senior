@@ -1,28 +1,41 @@
 <body [ngClass]="configurationService.getCentreForGlaucome()">
-
-<div [ngClass]="configurationService.getGlaucomeForQuiz()">
-    <h2 class="nom-quiz" [ngClass]="configurationService.getColorForProtanopieText()">
-        {{quiz.name}}
-    </h2>
-    <h2 class="score" [ngClass]="configurationService.getColorForProtanopieText()">
-        Score : {{score}}
-    </h2>
-    <ng-container *ngIf="!configurationService.arthrose">
-        <div class="fin-quiz" *ngIf="indexQuestion===quiz.questions.length">
-            <button [ngClass]="configurationService.getTerminerButton()" routerLink="/fin-quiz">Terminer le quiz</button>
-        </div>
-        <div class="abandon" *ngIf="indexQuestion!=quiz.questions.length">
-            <button class="button-abandon" [ngClass]="configurationService.getAbandonSize()" routerLink="/accueil">Abandonner</button>
-        </div>
-    </ng-container>  
-    <ng-container *ngIf="configurationService.arthrose">
-        <div class="fin-quiz" *ngIf="indexQuestion===quiz.questions.length">
-            <button [ngClass]="configurationService.getTerminerButton()" (mouseenter)="startTimer('/fin-quiz')" (mouseleave)="stopTimer()">Terminer le quiz</button>
-        </div>
-        <div class="abandon" *ngIf="indexQuestion!=quiz.questions.length">
-            <button class="button-abandon" [ngClass]="configurationService.getAbandonSize()" (mouseenter)="startTimer('/accueil')" (mouseleave)="stopTimer()">Abandonner</button>
-        </div>
-    </ng-container>
-    
+<div *ngIf="newQuestion">
+    <div [ngClass]="configurationService.getGlaucomeForQuiz()">
+        <h2 class="nom-quiz" [ngClass]="configurationService.getColorForProtanopieText()">
+            {{quiz.name}}
+        </h2>
+        <h2 class="score" [ngClass]="configurationService.getColorForProtanopieText()">
+            Score : {{score}}
+        </h2>
+        <ng-container *ngIf="!configurationService.arthrose">
+            <div class="fin-quiz" *ngIf="indexQuestion===quiz.questions.length">
+                <button [ngClass]="configurationService.getTerminerButton()" routerLink="/fin-quiz">Terminer le quiz</button>
+            </div>
+            <div class="abandon" *ngIf="indexQuestion!=quiz.questions.length">
+                <button class="button-abandon" [ngClass]="configurationService.getAbandonSize()" routerLink="/accueil">Abandonner</button>
+            </div>
+        </ng-container>  
+        <ng-container *ngIf="configurationService.arthrose">
+            <div class="fin-quiz" *ngIf="indexQuestion===quiz.questions.length">
+                <button [ngClass]="configurationService.getTerminerButton()" (mouseenter)="startTimer('/fin-quiz')" (mouseleave)="stopTimer()">Terminer le quiz</button>
+            </div>
+            <div class="abandon" *ngIf="indexQuestion!=quiz.questions.length">
+                <button class="button-abandon" [ngClass]="configurationService.getAbandonSize()" (mouseenter)="startTimer('/accueil')" (mouseleave)="stopTimer()">Abandonner</button>
+            </div>
+        </ng-container>    
+    </div>
+    <div class="fin" [ngClass]="configurationService.getColorForProtanopieText()" *ngIf="indexQuestion===quiz.questions.length">
+        Vous avez fini ! 
+    </div>
+    <app-jeu-question class="question" *ngIf="indexQuestion!=quiz.questions.length" [question]="quiz.questions[indexQuestion]" (answerSelected)="answerSelected($event)" (answerCorrect)="isCorrect($event)"></app-jeu-question>    
+</div>
+<div *ngIf="!newQuestion">
+    <div class="fin-quiz" *ngIf="indexQuestion===quiz.questions.length">
+        <button [ngClass]="configurationService.getTerminerButton()" routerLink="/fin-quiz">Terminer le quiz</button>
+    </div>
+    <div class="abandon" *ngIf="indexQuestion!=quiz.questions.length">
+        <button class="button-abandon" [ngClass]="configurationService.getAbandonSize()" routerLink="/accueil">Abandonner</button>
+    </div>
+    <app-jeu-reponse class="reponse" [answer]="trueAnswer()" [isCorrect]="answerGiven.isCorrect" [numero]="indexQuestion" [nbQuestion]="quiz.questions.length" [nomQuiz]="quiz.name" [question]="quiz.questions[indexQuestion-1].label" (newQuestionSelected)="selectNewQuestion($event)"></app-jeu-reponse>
 </div>
 </body>
