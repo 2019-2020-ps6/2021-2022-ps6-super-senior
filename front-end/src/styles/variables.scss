@@ -59,10 +59,20 @@ $protanopie : #085394;
   padding: 32px 48px;
 }
 
-.answer-glaucome {
+.answerSmall-glaucome {
   border-radius: 15px;
   padding: 1em;
+  padding-top: 2em;
+  padding-bottom: 2em;
   font-size: 15px;
+  font-weight: bold;
+  margin: 0%;
+}
+
+.answerBig-glaucome {
+  border-radius: 15px;
+  padding: 2.5em;
+  font-size: 20px;
   font-weight: bold;
   margin: 0%;
 }

@@ -35,13 +35,13 @@ export class ConfigurationService {
     getColorForProtanopieGlaucomeButtonSmall() {
         return {'color-protanopie': this.protanopie, 'color-normal': !this.protanopie, 
         'color-protanopie-question': this.protanopie, 'color-normal-question': !this.protanopie,
-        'answer-glaucome': this.glaucome, 'answerSmall': !this.glaucome}
+        'answerSmall-glaucome': this.glaucome, 'answerSmall': !this.glaucome}
     }
 
     getColorForProtanopieGlaucomeButtonBig() {
         return {'color-protanopie': this.protanopie, 'color-normal': !this.protanopie, 
         'color-protanopie-question': this.protanopie, 'color-normal-question': !this.protanopie,
-        'answer-glaucome': this.glaucome, 'answerBig': !this.glaucome}
+        'answerBig-glaucome': this.glaucome, 'answerBig': !this.glaucome}
     }
 
     getAbandonSize(){
