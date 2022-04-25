@@ -65,6 +65,9 @@ export class UserService {
   updateUser(user: User): void {
     const urlWithId = this.userUrl + '/' + user.id;
     this.http.put<User>(urlWithId, user).subscribe(() => this.retrieveUsers());
+    this.user = user;
+    this.userCurrent$.next(user);
+    this.userSelected$.next(user);
   }
 
   deconnexion(){
@@ -74,4 +77,6 @@ export class UserService {
       this.configurationService.glaucome = false;
       this.configurationService.temps = 5;
   }
+
+  
 }

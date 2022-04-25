@@ -1,7 +1,15 @@
 @import '../../../styles/card.scss';
 
+.card {
+    width: 70%;
+}
+
 .choix{
-    margin-left: 4em;
+    margin-left: 4%;
+}
+
+.input-custom {
+    width: 100%;
 }
 
 .identite {
@@ -11,7 +19,7 @@
 .prenom {
     flex : 1;
     flex-basis: 33%;
-    margin-right : 4em;
+    margin-right : 10%;
 }
 
 .nom {
@@ -23,12 +31,12 @@
 .photo{
     flex : 1;
     flex-basis: 33%;
-    margin-right : 4em;
+    margin-right : 10%;
 }
 
 .troubles {
     display: flex;
-    width: 40em;
+    width: 100%;
 }
 
 .choixTroubles {
@@ -37,7 +45,7 @@
 }
 
 .indicationsTroubles {
-    margin-top: 3em;
+    margin-top: 5%;
     border : 1pt solid black;
     flex : 1;
     flex-basis: 50%;
@@ -46,4 +54,9 @@
 
 .description {
     max-width: 18em;
+}
+
+.button-card {
+    background-color: palevioletred;
+    margin-left: 90%;
 }

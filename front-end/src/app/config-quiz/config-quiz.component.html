@@ -53,7 +53,7 @@
     </div>
 
     <button type="reset" class="button-card" [ngClass]="configurationService.getColorForProtanopieButton()">Réinitialiser</button>
-    <button type="submit" class="button-card" [ngClass]="configurationService.getColorForProtanopieButton()" routerLink="/config-quiz/{{quiz.id}}" (click)="saveChange()">Enregistrer</button>
+    <button type="submit" class="button-card" [ngClass]="configurationService.getColorForProtanopieButton()" (click)="saveChange()" routerLink="/lancement-quiz/{{quiz.id}}">Enregistrer</button>
     <button class="button-card" [ngClass]="configurationService.getColorForProtanopieButton()" routerLink="/lancement-quiz/{{quiz.id}}">Retour au quiz</button>
 
   </body>
