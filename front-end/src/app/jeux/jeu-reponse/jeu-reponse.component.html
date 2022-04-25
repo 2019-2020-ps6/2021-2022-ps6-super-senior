@@ -1,0 +1,63 @@
+<body >
+<div class="hautAffichage" [ngClass]="configurationService.getGlaucomeForQuiz()">
+    <div class="numero" [ngClass]="configurationService.getColorForProtanopieText()" [ngClass]="configurationService.getGlaucomeForQuiz()">
+        Question {{numero}} sur {{nbQuestion}}
+    </div>
+    <div class="nomQuiz" [ngClass]="configurationService.getColorForProtanopieText()" [ngClass]="configurationService.getGlaucomeForQuiz()">
+        {{nomQuiz}}
+    </div>
+</div>
+<div *ngIf="isCorrect">
+    <div class="question" [ngClass]="configurationService.getColorForProtanopieText()" >
+        {{question}}
+    </div>
+    <br>
+    <div class="bonneReponse" [ngClass]="configurationService.getColorForProtanopieText()">
+        Bonne réponse !
+    </div>
+    <br>
+    <div class="parent">
+        <div class="answer" [ngClass]="configurationService.getColorForProtanopieText()">
+            {{answer.value}}
+            <br>
+            <img *ngIf="answer.imageAnswer"class="imageAnswer" src={{answer.imageAnswer}}>
+        </div>
+        <div class="enSavoirPlus" *ngIf="answer.enSavoirPlus" [ngClass]="configurationService.getColorForProtanopieText()">
+            En savoir plus ?
+            <br>
+            <br>
+            <button class="audio" (click)="lecture(answer.enSavoirPlus)" [ngClass]="configurationService.getProtanopieGlaucomeArthroseButtonSmall()">
+                <img class="imageAudio" src="https://cdn.icon-icons.com/icons2/910/PNG/512/headphones_icon-icons.com_71177.png">
+            </button>
+        </div>
+    </div>
+    <div class="bouton">
+        <button class="button-card"(click)="newQuestion()">Question suivante</button>
+    </div>
+</div>
+<div *ngIf="!isCorrect">
+    <div class="question" [ngClass]="configurationService.getColorForProtanopieText()">
+        {{question}}
+    </div>
+    <br>
+    <br>
+    <div class="parent">
+        <div class="answer" [ngClass]="configurationService.getColorForProtanopieText()">
+            {{answer.value}}
+            <br>
+            <img *ngIf="answer.imageAnswer"class="imageAnswer" src={{answer.imageAnswer}}>
+        </div>
+        <div class="enSavoirPlus" *ngIf="answer.enSavoirPlus" [ngClass]="configurationService.getColorForProtanopieText()">
+            En savoir plus ?
+            <br>
+            <br>
+            <button class="audio" (click)="lecture(answer.enSavoirPlus)">
+                <img class="imageAudio" src="https://cdn.icon-icons.com/icons2/910/PNG/512/headphones_icon-icons.com_71177.png">
+            </button>
+        </div>
+    </div>
+    <div class="bouton">
+        <button class="button-card"(click)="newQuestion()" [ngClass]="configurationService.getProtanopieGlaucomeArthroseButtonSmall()">Question suivante</button>
+    </div>
+</div>
+</body>

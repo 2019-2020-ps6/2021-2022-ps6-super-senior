@@ -23,6 +23,7 @@ import { JeuComponent } from './jeux/jeu/jeu.component';
 import { JeuQuestionComponent } from './jeux/jeu-question/jeu-question.component';
 import { FinQuizComponent } from './fin-quiz/fin-quiz.component';
 import { UserInfoComponent } from './users/user-info/user-info.component';
+import { JeuReponseComponent } from './jeux/jeu-reponse/jeu-reponse.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import { UserInfoComponent } from './users/user-info/user-info.component';
     JeuQuestionComponent,
     FinQuizComponent,
     UserInfoComponent,
+    JeuReponseComponent
   ],
   imports: [
     BrowserModule,

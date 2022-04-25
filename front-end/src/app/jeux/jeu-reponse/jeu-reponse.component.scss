@@ -1,0 +1,67 @@
+@import '../../../styles/card.scss';
+
+.hautAffichage{
+    display: flex;
+    justify-content: space-between;
+}
+
+.numero {
+    flex: 1;
+    font-size: 130%;
+}
+
+.nomQuiz{
+    flex: 1;
+    font-size: 130%;
+    text-align: end;
+}
+
+.question {
+    text-align: center;
+    width: 100%;
+    font-size: 1.5em;
+}
+
+.bonneReponse {
+    text-align: center;
+    width: 100%;
+    font-size: 300%;
+}
+
+.parent {
+    display: flex;
+    justify-content: space-between;
+}
+
+.answer {
+    flex: 1;
+    font-size: 1.5em;
+}
+
+.enSavoirPlus {
+    flex: 1;
+    font-size: 1.5em;
+}
+
+.imageAudio {
+    max-height: 1.7em;
+    max-width: em;
+    width: auto;
+    height: auto;
+}
+
+.audio {
+    padding: 3% 8%;
+    border : 2pt solid blue;
+}
+
+.bouton {
+    display: flex;
+}
+
+.button-card {
+    flex: 1;
+    border : 3pt solid blue;
+    border-radius: 4%;
+    margin-left: 80%;
+}

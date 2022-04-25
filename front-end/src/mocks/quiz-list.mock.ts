@@ -5,11 +5,13 @@ export const QUESTION_ACTOR: Question = {
     id: '1',
     label: 'Jean Gabin a joué dans...',
     answers: [
-        {
+        {   
+            id: "1",
             value: 'Les tuches II',
             isCorrect: false,
         },
-        {
+        {   
+            id: "2",
             value: 'La grande illusion',
             isCorrect: true,
         }

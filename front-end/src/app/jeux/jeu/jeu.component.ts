@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Jeu } from 'src/models/jeu.model';
 import { Quiz } from 'src/models/quiz.model';
-import { Question } from 'src/models/question.model';
+import { Answer, Question } from 'src/models/question.model';
 import { JeuService } from 'src/services/jeu.service';
 import { QuizService } from 'src/services/quiz.service';
 import { LancementQuizComponent } from 'src/app/lancement-quiz/lancement-quiz.component';
@@ -26,6 +26,8 @@ export class JeuComponent implements OnInit {
   public indexQuestion : number;
   public score : number = 0;
   private formJeu: FormGroup;
+  public newQuestion : boolean = true;
+  public answerGiven : Answer;
 
   constructor(private route: ActivatedRoute, private jeuService: JeuService, private quizService: QuizService, private forBuilder : FormBuilder, public configurationService: ConfigurationService, private router :Router) {
     const id = this.route.snapshot.paramMap.get('id');
@@ -52,8 +54,10 @@ export class JeuComponent implements OnInit {
     this.jeu = jeuToCreate;
   }
 
-  answerSelected(answersId : string): void {
-    this.jeu.answers.push(answersId);
+  answerSelected(answer : Answer): void {
+    this.newQuestion = false;
+    this.jeu.answers.push(answer.id);
+    this.answerGiven = answer;
     this.indexQuestion++;
     if(this.indexQuestion==this.quiz.questions.length) { 
       this.jeuService.addJeu(this.jeu);
@@ -63,7 +67,6 @@ export class JeuComponent implements OnInit {
   }
 
   isCorrect(isCorrect : boolean) : void {
-    console.log("jeu " + isCorrect);
     if(isCorrect){
       this.score++;
     }
@@ -85,6 +88,20 @@ export class JeuComponent implements OnInit {
     }
   
     return array;
+  }
+
+  trueAnswer(): Answer{
+    for(var i =0; i< this.quiz.questions[this.indexQuestion-1].answers.length; i++){
+      if(this.quiz.questions[this.indexQuestion-1].answers[i].isCorrect){
+        return this.quiz.questions[this.indexQuestion-1].answers[i];
+      }
+    }
+    return null;
+  }
+
+  selectNewQuestion(newQuestion : boolean){
+    console.log(newQuestion);
+    this.newQuestion = true;
   }
 
   startTimer(path: String) : void {

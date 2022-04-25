@@ -50,6 +50,7 @@ export class QuestionFormComponent implements OnInit {
     return this.formBuilder.group({
       value: '',
       imageAnswer:['', Validators.nullValidator],
+      enSavoirPlus:[''],
       isCorrect: true,
     });
   }

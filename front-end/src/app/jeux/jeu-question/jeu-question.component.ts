@@ -22,7 +22,7 @@ export class JeuQuestionComponent implements OnInit {
   public answersRandom : Answer[];
 
   @Output()
-  answerSelected: EventEmitter<string> = new EventEmitter<string>();
+  answerSelected: EventEmitter<Answer> = new EventEmitter<Answer>();
 
   @Output()
   answerCorrect: EventEmitter<boolean> = new EventEmitter<boolean>();
@@ -35,8 +35,8 @@ export class JeuQuestionComponent implements OnInit {
     this.answersRandom = this.shuffle(this.question.answers);
   }
 
-  selectAnswer(answersId : string ) : void {
-    this.answerSelected.emit(answersId);
+  selectAnswer(answers : Answer ) : void {
+    this.answerSelected.emit(answers);
   }
 
   isCorrect(isCorrect : boolean) : void {
@@ -86,7 +86,7 @@ export class JeuQuestionComponent implements OnInit {
   
   stopTimer() {
     if(this.timeLeft ==0){
-      this.selectAnswer(this.answerId);
+      this.selectAnswer(this.answerHover);
       this.isCorrect(this.answerHover.isCorrect)
     }
     this.timeLeft=this.configurationService.temps;

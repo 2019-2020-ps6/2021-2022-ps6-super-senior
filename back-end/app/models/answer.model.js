@@ -7,4 +7,5 @@ module.exports = new BaseModel('Answer', {
   isCorrect: Joi.boolean().required(),
   questionId: Joi.number(),
   imageAnswer: Joi.string().allow(''),
+  enSavoirPlus: Joi.string().allow(''),
 })

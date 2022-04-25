@@ -11,9 +11,9 @@
     <div *ngIf="configurationService.arthrose" class="answer-list">
         <ng-container *ngIf="question.answers.length>2">
             <div class="answers" *ngFor="let answer of question.answers; let i=index">
-                <button *ngIf="!answer.imageAnswer" [ngClass]="configurationService.getProtanopieGlaucomeArthroseButtonSmall()" (mouseenter)="startTimer(answer, answer.id)" (mouseleave)="stopTimer()" (click)="selectAnswer(answer.id);isCorrect(answer.isCorrect)">{{answer.value}} </button>
+                <button *ngIf="!answer.imageAnswer" [ngClass]="configurationService.getProtanopieGlaucomeArthroseButtonSmall()" (mouseenter)="startTimer(answer, answer.id)" (mouseleave)="stopTimer()" (click)="selectAnswer(answer);isCorrect(answer.isCorrect)">{{answer.value}} </button>
                 <button class="answerImageSmall" *ngIf="answer.imageAnswer" [ngClass]="configurationService.getColorForProtanopieButton()" [ngClass]="configurationService.getTailleForArthrose()"
-                (mouseenter)="startTimer(answer, answer.id)" (mouseleave)="stopTimer()" (click)="selectAnswer(answer.id);isCorrect(answer.isCorrect)">
+                (mouseenter)="startTimer(answer, answer.id)" (mouseleave)="stopTimer()" (click)="selectAnswer(answer);isCorrect(answer.isCorrect)">
                     {{answer.value}}
                     <img class="imageAnswerSmall" src={{answer.imageAnswer}}>
                 </button>
@@ -24,7 +24,7 @@
             <div class="answers" *ngFor="let answer of question.answers; let i=index">
                 <button *ngIf="!answer.imageAnswer" [ngClass]="configurationService.getColorForProtanopieGlaucomeArthroseButtonBig()" (mouseenter)="startTimer(answer, answer.id)" (mouseleave)="stopTimer()" (click)="selectAnswer(answer.id);isCorrect(answer.isCorrect)">{{answer.value}} </button>
                 <button class="answerImageBig" *ngIf="answer.imageAnswer" [ngClass]="configurationService.getColorForProtanopieButton()" [ngClass]="configurationService.getTailleForArthrose()"
-                (mouseenter)="startTimer(answer, answer.id)" (mouseleave)="stopTimer()" (click)="selectAnswer(answer.id);isCorrect(answer.isCorrect)">
+                (mouseenter)="startTimer(answer, answer)" (mouseleave)="stopTimer()" (click)="selectAnswer(answer);isCorrect(answer.isCorrect)">
                     {{answer.value}}
                     <img class="imageAnswerBig" src={{answer.imageAnswer}}>
                 </button>
@@ -35,9 +35,9 @@
     <div *ngIf="!configurationService.arthrose" class="answer-list">
         <ng-container *ngIf="question.answers.length>2">
             <div class="answers" *ngFor="let answer of question.answers; let i=index">
-                <button *ngIf="!answer.imageAnswer" [ngClass]="configurationService.getProtanopieGlaucomeArthroseButtonSmall()" (click)="selectAnswer(answer.id);isCorrect(answer.isCorrect)">{{answer.value}} </button>
+                <button *ngIf="!answer.imageAnswer" [ngClass]="configurationService.getProtanopieGlaucomeArthroseButtonSmall()" (click)="selectAnswer(answer);isCorrect(answer.isCorrect)">{{answer.value}} </button>
                 <button class="answerImageSmall" *ngIf="answer.imageAnswer" [ngClass]="configurationService.getColorForProtanopieButton()" [ngClass]="configurationService.getTailleForArthrose()"
-                (click)="selectAnswer(answer.id);isCorrect(answer.isCorrect)">
+                (click)="selectAnswer(answer);isCorrect(answer.isCorrect)">
                     {{answer.value}}
                     <img class="imageAnswerSmall" src={{answer.imageAnswer}}>
                 </button>
@@ -46,9 +46,9 @@
         </ng-container>
         <ng-container *ngIf="question.answers.length<=2">
             <div class="answers" *ngFor="let answer of question.answers; let i=index">
-                <button *ngIf="!answer.imageAnswer" [ngClass]="configurationService.getColorForProtanopieGlaucomeArthroseButtonBig()" (click)="selectAnswer(answer.id);isCorrect(answer.isCorrect)">{{answer.value}} </button>
+                <button *ngIf="!answer.imageAnswer" [ngClass]="configurationService.getColorForProtanopieGlaucomeArthroseButtonBig()" (click)="selectAnswer(answer);isCorrect(answer.isCorrect)">{{answer.value}} </button>
                 <button class="answerImageBig" *ngIf="answer.imageAnswer" [ngClass]="configurationService.getColorForProtanopieButton()" [ngClass]="configurationService.getTailleForArthrose()"
-                (click)="selectAnswer(answer.id);isCorrect(answer.isCorrect)">
+                (click)="selectAnswer(answer);isCorrect(answer.isCorrect)">
                     {{answer.value}}
                     <img class="imageAnswerBig" src={{answer.imageAnswer}}>
                 </button>
