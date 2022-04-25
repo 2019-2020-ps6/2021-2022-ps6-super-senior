@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { QuizService } from '../../../services/quiz.service';
 import { Quiz } from '../../../models/quiz.model';
+import { ConfigurationService } from 'src/services/configuration.service';
 
 @Component({
   selector: 'app-quiz-list',

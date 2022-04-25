@@ -1,4 +1,10 @@
 <body [ngClass]="configurationService.getCentreForGlaucome()">
 <h2 [ngClass]="configurationService.getColorForProtanopieText()"> Vous avez fini le quiz</h2>
-<button class="button-card" [ngClass]="configurationService.getColorForProtanopieButton()" routerLink="/accueil">Retour aux quizs</button>
+<ng-container *ngIf="!configurationService.arthrose">
+    <button class="button-card" [ngClass]="configurationService.getColorForProtanopieButton()" routerLink="/accueil">Retour aux quizs</button>
+</ng-container>
+<ng-container *ngIf="configurationService.arthrose">
+    <button class="button-card" [ngClass]="configurationService.getColorForProtanopieButton()" (mouseenter)="startTimer('/accueil')" (mouseleave)="stopTimer()">Retour aux quizs</button>
+</ng-container>
+
 </body>

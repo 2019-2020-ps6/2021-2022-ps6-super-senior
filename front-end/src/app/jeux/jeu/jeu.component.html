@@ -6,12 +6,23 @@
     <h2 class="score" [ngClass]="configurationService.getColorForProtanopieText()">
         Score : {{score}}
     </h2>
-    <div class="fin-quiz" *ngIf="indexQuestion===quiz.questions.length">
-        <button [ngClass]="configurationService.getTerminerButton()" routerLink="/fin-quiz">Terminer le quiz</button>
-    </div>
-    <div class="abandon" *ngIf="indexQuestion!=quiz.questions.length">
-        <button class="button-abandon" [ngClass]="configurationService.getAbandonSize()" routerLink="/accueil">Abandonner</button>
-    </div>
+    <ng-container *ngIf="!configurationService.arthrose">
+        <div class="fin-quiz" *ngIf="indexQuestion===quiz.questions.length">
+            <button [ngClass]="configurationService.getTerminerButton()" routerLink="/fin-quiz">Terminer le quiz</button>
+        </div>
+        <div class="abandon" *ngIf="indexQuestion!=quiz.questions.length">
+            <button class="button-abandon" [ngClass]="configurationService.getAbandonSize()" routerLink="/accueil">Abandonner</button>
+        </div>
+    </ng-container>  
+    <ng-container *ngIf="configurationService.arthrose">
+        <div class="fin-quiz" *ngIf="indexQuestion===quiz.questions.length">
+            <button [ngClass]="configurationService.getTerminerButton()" (mouseenter)="startTimer('/fin-quiz')" (mouseleave)="stopTimer()">Terminer le quiz</button>
+        </div>
+        <div class="abandon" *ngIf="indexQuestion!=quiz.questions.length">
+            <button class="button-abandon" [ngClass]="configurationService.getAbandonSize()" (mouseenter)="startTimer('/accueil')" (mouseleave)="stopTimer()">Abandonner</button>
+        </div>
+    </ng-container>
+    
 </div>
 <div class="fin" [ngClass]="configurationService.getColorForProtanopieText()" *ngIf="indexQuestion===quiz.questions.length">
     Vous avez fini ! 

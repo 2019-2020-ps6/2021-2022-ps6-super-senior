@@ -5,6 +5,7 @@ import { element } from 'protractor';
 import { Quiz } from 'src/models/quiz.model';
 import { QuizService } from 'src/services/quiz.service';
 import { ConfigurationService } from 'src/services/configuration.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-config-quiz',
@@ -13,14 +14,19 @@ import { ConfigurationService } from 'src/services/configuration.service';
 })
 export class ConfigQuizComponent implements OnInit {
 
+  timeLeft: number = 5;
+  interval;
+  path: String;
+
   public quiz: Quiz;
   public protanopie: boolean = this.configurationService.protanopie;
   public glaucome: boolean = this.configurationService.glaucome;
   public arthrose: boolean = this.configurationService.arthrose;
   public temps: number = 2;
 
-  constructor(private route: ActivatedRoute, private quizService: QuizService, public configurationService: ConfigurationService) {
+  constructor(private route: ActivatedRoute, private quizService: QuizService, public configurationService: ConfigurationService, private router: Router) {
     this.quizService.quizCurrent$.subscribe((quiz) => this.quiz = quiz);
+    this.timeLeft = configurationService.temps;
   }
 
   ngOnInit(): void {
@@ -63,6 +69,32 @@ export class ConfigQuizComponent implements OnInit {
 
   arthroseIsChecked(): boolean{
     return this.arthrose;
+  }
+
+  startTimer(path: String) : void {
+    this.interval = setInterval(() => {
+      if(this.timeLeft > 0) {
+        this.timeLeft--;
+      }
+      if(this.timeLeft==0){
+        this.path=path;
+        this.stopTimer();
+      }
+    },1000)
+    this.path=path;
+
+  }
+  
+  stopTimer() {
+    if(this.timeLeft ==0){
+      if(this.path=='/config-quiz/'){
+        this.saveChange();
+      }
+      console.log(this.path);
+        this.router.navigate([this.path +this.quiz.id]);
+    }
+    this.timeLeft=this.configurationService.temps;
+    clearInterval(this.interval);
   }
 
 }

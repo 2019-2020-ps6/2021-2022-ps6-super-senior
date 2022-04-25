@@ -1,6 +1,11 @@
 <body [ngClass]="configurationService.getCentreForGlaucome()">
     <h2 [ngClass]="configurationService.getColorForProtanopieText()">Lancement</h2>
-    <ng-container *ngIf="quiz">
+    <ng-container *ngIf="quiz && configurationService.arthrose">
+        <button class="button-card" [ngClass]="configurationService.getProtanopieArthroseButton()" (mouseenter)="startTimer('/accueil')" (mouseleave)="stopTimer()">Retour aux quizs</button>
+        <button class="button-card" [ngClass]="configurationService.getProtanopieArthroseButton()" (mouseenter)="startTimer('/config-quiz/')" (mouseleave)="stopTimer()">Configuration du quiz</button>
+        <button class="button-card" [ngClass]="configurationService.getProtanopieArthroseButton()" (mouseenter)="startTimer('/jeu/')" (mouseleave)="stopTimer()">Début du quiz</button>
+    </ng-container>
+    <ng-container *ngIf="quiz && !configurationService.arthrose">
         <button class="button-card" [ngClass]="configurationService.getProtanopieArthroseButton()" routerLink="/accueil">Retour aux quizs</button>
         <button class="button-card" [ngClass]="configurationService.getProtanopieArthroseButton()" routerLink="/config-quiz/{{quiz.id}}">Configuration du quiz</button>
         <button class="button-card" [ngClass]="configurationService.getProtanopieArthroseButton()" routerLink="/jeu/{{quiz.id}}">Début du quiz</button>

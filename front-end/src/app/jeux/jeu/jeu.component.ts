@@ -8,7 +8,7 @@ import { JeuService } from 'src/services/jeu.service';
 import { QuizService } from 'src/services/quiz.service';
 import { LancementQuizComponent } from 'src/app/lancement-quiz/lancement-quiz.component';
 import { ConfigurationService } from 'src/services/configuration.service';
-
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-jeu',
@@ -17,6 +17,9 @@ import { ConfigurationService } from 'src/services/configuration.service';
 })
 export class JeuComponent implements OnInit {
 
+  timeLeft: number = 5;
+  interval;
+  path: String;
 
   public quiz : Quiz;
   public jeu : Jeu;
@@ -24,7 +27,7 @@ export class JeuComponent implements OnInit {
   public score : number = 0;
   private formJeu: FormGroup;
 
-  constructor(private route: ActivatedRoute, private jeuService: JeuService, private quizService: QuizService, private forBuilder : FormBuilder, public configurationService: ConfigurationService) {
+  constructor(private route: ActivatedRoute, private jeuService: JeuService, private quizService: QuizService, private forBuilder : FormBuilder, public configurationService: ConfigurationService, private router :Router) {
     const id = this.route.snapshot.paramMap.get('id');
     //this.quiz = this.quizService.getQuiz(id) as Quiz;
     this.quizService.quizCurrent$.subscribe((quiz) => {
@@ -32,6 +35,7 @@ export class JeuComponent implements OnInit {
     });
     this.addJeu();
     this.indexQuestion = 0;
+    this.timeLeft = configurationService.temps;
   }
 
   ngOnInit(): void {
@@ -81,6 +85,28 @@ export class JeuComponent implements OnInit {
     }
   
     return array;
+  }
+
+  startTimer(path: String) : void {
+    this.interval = setInterval(() => {
+      if(this.timeLeft > 0) {
+        this.timeLeft--;
+      }
+      if(this.timeLeft==0){
+        this.path=path;
+        this.stopTimer();
+      }
+    },1000)
+    this.path=path;
+
+  }
+  
+  stopTimer() {
+    if(this.timeLeft ==0){
+      this.router.navigate([this.path]);  
+    }
+    this.timeLeft=this.configurationService.temps;
+    clearInterval(this.interval);
   }
 
 }
