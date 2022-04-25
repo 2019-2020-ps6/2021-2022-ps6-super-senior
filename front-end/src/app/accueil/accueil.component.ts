@@ -2,6 +2,7 @@ import { style } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ConfigurationService } from 'src/services/configuration.service';
+import { UserService } from 'src/services/user.service';
 
 @Component({
   selector: 'app-accueil',
@@ -10,7 +11,7 @@ import { ConfigurationService } from 'src/services/configuration.service';
 })
 export class AccueilComponent implements OnInit {
 
-  constructor(public configurationService: ConfigurationService) { }
+  constructor(public configurationService: ConfigurationService, public userService : UserService) {}
 
   ngOnInit(): void {
     
@@ -25,7 +26,6 @@ export class AccueilComponent implements OnInit {
   }
 
   changeGlaucome(): void {
-    console.log(this.configurationService.glaucome);
     this.configurationService.glaucome = !this.configurationService.glaucome;
   }
 

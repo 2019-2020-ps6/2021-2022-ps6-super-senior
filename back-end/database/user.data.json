@@ -1,8 +1,46 @@
 [
   {
+<<<<<<< HEAD
     "firstName": "Georges",
     "lastName": "Russel",
     "photo": "https://previews.123rf.com/images/nyul/nyul1401/nyul140100508/25483556-gros-plan-portrait-de-golfeur-homme-%C3%A2g%C3%A9-qui-tient-club-de-golf-apr%C3%A8s-coup-.jpg",
+=======
+    "firstName": "Giselle",
+    "lastName": "Durant",
+    "photo": "https://images.pexels.com/photos/4057748/pexels-photo-4057748.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+    "protanopie": true,
+    "glaucome": false,
+    "arthrose": false,
+    "temps": 2,
+    "id": 1650734379433
+  },
+  {
+    "firstName": "glaucome",
+    "lastName": "g",
+    "photo": "",
+    "protanopie": false,
+    "glaucome": true,
+    "arthrose": false,
+    "temps": 2,
+    "id": 1650737137558
+  },
+  {
+    "firstName": "Mathieu",
+    "lastName": "Schalkwijk",
+    "photo": "https://static.wikia.nocookie.net/reddeadredemptionfr/images/c/ca/John_Marston05.jpg/revision/latest?cb=20200529124817&path-prefix=fr",
+    "protanopie": false,
+    "glaucome": true,
+    "arthrose": true,
+    "temps": 2,
+    "id": 1650737575131
+  }
+]
+[
+  {
+    "firstName": "Carla",
+    "lastName": "WAGSCHAL",
+    "photo": "",
+>>>>>>> edaf39efeb4fa375775404b97b26b3be02448b71
     "protanopie": true,
     "glaucome": false,
     "arthrose": false,

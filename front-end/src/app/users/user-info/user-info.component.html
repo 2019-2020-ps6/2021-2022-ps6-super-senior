@@ -1,0 +1,66 @@
+<div class="user-info">
+    <div *ngIf="user.firstName">
+        <div class="compte">
+            <br>
+            Mon compte :
+        </div>
+        <div class="identite">
+            <div class="prenom">
+                Prénom : {{user.firstName}}
+            </div>
+            <div class="nom">
+                Nom : {{user.lastName}}
+            </div>
+            <div class="photo">
+                <img *ngIf="user.photo"class="photoUser" src={{user.photo}}>
+                <i *ngIf="!user.photo" class="fas fa-user"></i>
+            </div>
+        </div>
+        <div class="troubles">
+            <div class="choixTroubles">
+              <h2>
+                Handicaps visuels : 
+              </h2>
+              <div class="protanopie">
+                <label for="protanopie">Protanopie : </label>
+                    <input  class="choix" type ="checkbox" id="protanopie" name="protanopie" (click)="selectProtanopie()" [checked]="user.protanopie">
+                    <span>Oui</span>
+              </div>
+              <div class="glaucome">
+                <label for="glaucome">Glaucome : </label>
+                    <input class="choix" type = "checkbox" id="glaucome" name="glaucome" (click)="selectGlaucome()" [checked]="user.glaucome">
+                    <span>Oui</span>
+              </div>
+              <h2>
+                Handicap moteur : 
+              </h2>
+              <div class="arthrose">
+                <label for="arthrose">Arthrose : </label>
+                    <input class="choix" type = "checkbox" id="arthrose" name="arthrose" (click)="selectArthrose()" [checked]="user.arthrose">
+                    <span>Oui</span>
+              </div>
+              <div *ngIf="user.arthrose" id="ChoixTemps" class="ChoixTemps">
+                Temps pour choisir la réponse : 
+                <select id="time" (change)="newTime($event)">
+                    <option value="1">1 sec</option>
+                    <option value="2" selected>2 sec</option>
+                    <option value="3">3 sec</option>
+                    <option value="5">4 sec</option>
+                    <option value="5">5 sec</option>
+                </select>
+              </div>
+            </div>
+            <span *ngIf="user.protanopie || user.glaucome || user.arthrose"class="indicationsTroubles">
+              <div class="description" *ngIf="user.protanopie">Protanopie : <br> {{configurationService.indicationProtanopie}}<br><br></div>
+              <div class="description" *ngIf="user.glaucome">Glaucome : <br>{{configurationService.indicationGlaucome}}<br><br></div>
+              <div class="description" *ngIf="user.arthrose">Arthrose : <br>{{configurationService.indicationArthrose}}<br><br></div>
+            </span>
+          </div>
+          <button class="button-card" (click)="save()">Sauvegarder</button>
+          <button class="button-card" (click)="delete()">Supprimer</button>
+          <br>
+    </div>
+</div>
+<div class="aucunCompte" *ngIf="!user.firstName">
+  Aucun compte sélectionné.
+</div>

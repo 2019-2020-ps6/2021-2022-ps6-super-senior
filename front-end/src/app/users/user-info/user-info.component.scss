@@ -1,0 +1,78 @@
+@import '../../../styles/card.scss';
+
+.compte {
+    text-align: center;
+    font-size : 3em;
+    font-weight: bold;
+    margin-top: 1%;
+    margin-bottom: 4%;
+}
+
+.aucunCompte{
+    margin-top: 10%;
+    font-size : 3em;
+    font-weight: bold;
+    margin-bottom: 4%;
+    margin-left: 15%;
+    margin-right: 15%;
+}
+
+.identite {
+    display: flex;
+    text-align: center;
+}
+
+.photo {
+    flex :1;
+    flex-basis: 33%;
+}
+
+.photoUser{
+    border-radius: 10px;
+    max-width: 100px;
+    max-height: 120px;
+    width: auto;
+	height: auto;
+    display: block;
+    margin-left: 10%;
+    margin-right: auto;
+}
+
+.prenom {
+    flex : 1;
+    flex-basis: 33%;
+    text-align: center;
+}
+
+.nom{
+    flex : 1;
+    flex-basis: 33%;
+    text-align: center;
+}
+
+.user-info{
+    background-color: white;
+    border-radius: 5%;
+}
+
+.troubles {
+    display: flex;
+    width: 40em;
+}
+
+.choixTroubles {
+    flex : 1;
+    flex-basis: 50%;
+}
+
+.indicationsTroubles {
+    margin-top: 3em;
+    border : 1pt solid black;
+    flex : 1;
+    flex-basis: 50%;
+    font-size: 15px;
+}
+
+.description {
+    max-width: 18em;
+}

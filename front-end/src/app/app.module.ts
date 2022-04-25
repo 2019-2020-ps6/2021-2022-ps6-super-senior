@@ -22,6 +22,7 @@ import { ConfigQuizComponent } from './config-quiz/config-quiz.component';
 import { JeuComponent } from './jeux/jeu/jeu.component';
 import { JeuQuestionComponent } from './jeux/jeu-question/jeu-question.component';
 import { FinQuizComponent } from './fin-quiz/fin-quiz.component';
+import { UserInfoComponent } from './users/user-info/user-info.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { FinQuizComponent } from './fin-quiz/fin-quiz.component';
     JeuComponent,
     JeuQuestionComponent,
     FinQuizComponent,
+    UserInfoComponent,
   ],
   imports: [
     BrowserModule,

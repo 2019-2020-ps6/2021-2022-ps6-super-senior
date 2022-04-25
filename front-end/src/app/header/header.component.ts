@@ -10,13 +10,18 @@ import { UserService } from 'src/services/user.service';
 })
 export class HeaderComponent implements OnInit {
 
-  user: string = "User";
+  public user: string = "User";
 
   constructor(public configurationService: ConfigurationService, public userService: UserService) {
     userService.userSelected$.subscribe((user) => this.user = user.firstName);
   }
 
   ngOnInit(): void {
+  }
+
+  deconnexion(){
+    this.userService.deconnexion();
+    this.user = "User";
   }
 
 }

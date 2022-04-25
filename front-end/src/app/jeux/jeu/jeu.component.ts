@@ -25,14 +25,9 @@ export class JeuComponent implements OnInit {
   private formJeu: FormGroup;
 
   constructor(private route: ActivatedRoute, private jeuService: JeuService, private quizService: QuizService, private forBuilder : FormBuilder, public configurationService: ConfigurationService) {
-    /*this.quizService.quizSelected$.subscribe((quiz) => {
-      this.test = quiz;
-      this.addJeu();
-    }
-    );*/
     const id = this.route.snapshot.paramMap.get('id');
-    this.quiz = this.quizService.getQuiz(id) as Quiz;
-    this.quizService.quizSelected$.subscribe((quiz) => {
+    //this.quiz = this.quizService.getQuiz(id) as Quiz;
+    this.quizService.quizCurrent$.subscribe((quiz) => {
       this.quiz = quiz;
     });
     this.addJeu();

@@ -17,6 +17,10 @@ export class ConfigurationService {
 
     temps: number = 2;
 
+    public indicationProtanopie: string = "Le texte sera écrit en bleu."
+    public indicationArthrose: string = "Les cases de réponses seront affichées en plus gros.\nIl faut rester un certains temps sur la réponse pour la sélectioner";
+    public indicationGlaucome: string = "Les élements du site seront centrés."
+
     private httpOptions = httpOptionsBase;
 
     constructor(private http: HttpClient) {
@@ -32,16 +36,18 @@ export class ConfigurationService {
         'color-protanopie-button': this.protanopie, 'color-normal-button': !this.protanopie}
     }
 
-    getColorForProtanopieGlaucomeButtonSmall() {
+    getProtanopieGlaucomeArthroseButtonSmall() {
         return {'color-protanopie': this.protanopie, 'color-normal': !this.protanopie, 
         'color-protanopie-question': this.protanopie, 'color-normal-question': !this.protanopie,
-        'answerSmall-glaucome': this.glaucome, 'answerSmall': !this.glaucome}
+        'answerSmall-glaucome': this.glaucome, 'answerSmall': !this.glaucome,
+        'taille-arthrose': this.arthrose}
     }
 
-    getColorForProtanopieGlaucomeButtonBig() {
+    getColorForProtanopieGlaucomeArthroseButtonBig() {
         return {'color-protanopie': this.protanopie, 'color-normal': !this.protanopie, 
         'color-protanopie-question': this.protanopie, 'color-normal-question': !this.protanopie,
-        'answerBig-glaucome': this.glaucome, 'answerBig': !this.glaucome}
+        'answerBig-glaucome': this.glaucome, 'answerBig': !this.glaucome,
+        'taille-arthrose': this.arthrose}
     }
 
     getAbandonSize(){
@@ -56,11 +62,15 @@ export class ConfigurationService {
         return {'top-jeu-glaucome': this.glaucome, 'top-jeu': !this.glaucome}
     }
 
-    getTailleForArthrose() {
-        return {'taille-arthrose': this.arthrose, 'taille-normal': !this.arthrose}
-    }
-
     getTemps(){
         return{'temps': this.temps}
+    }
+    
+    getArthrose(){
+        return this.arthrose;
+    }
+
+    getTailleForArthrose(){
+        return {'taille-arthrose': this.arthrose}
     }
 }
