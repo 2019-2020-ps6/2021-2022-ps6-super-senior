@@ -29,8 +29,6 @@ export class JeuQuestionComponent implements OnInit {
 
   constructor(public configurationService: ConfigurationService) {
     this.timeLeft = configurationService.temps;
-    console.log(configurationService.getCentreForGlaucome());
-    console.log(configurationService.getProtanopieGlaucomeArthroseButtonSmall());
   }
 
   ngOnInit(): void {

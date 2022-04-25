@@ -36,6 +36,12 @@ export class ConfigurationService {
         'color-protanopie-button': this.protanopie, 'color-normal-button': !this.protanopie}
     }
 
+    getProtanopieArthroseButton() {
+        return {'color-protanopie': this.protanopie, 'color-normal': !this.protanopie, 
+        'color-protanopie-button': this.protanopie, 'color-normal-button': !this.protanopie,
+        'taille-arthrose': this.arthrose}
+    }
+
     getProtanopieGlaucomeArthroseButtonSmall() {
         return {'color-protanopie': this.protanopie, 'color-normal': !this.protanopie, 
         'color-protanopie-question': this.protanopie, 'color-normal-question': !this.protanopie,
@@ -52,6 +58,11 @@ export class ConfigurationService {
 
     getAbandonSize(){
         return {'abandon-glaucome': this.glaucome, 'abandon-normal': !this.glaucome}
+    }
+
+    getTerminerButton(){
+        return {'abandon-glaucome': this.glaucome, 'abandon-normal': !this.glaucome,
+        'color-protanopie-button': this.protanopie, 'color-normal-button': !this.protanopie}
     }
 
     getCentreForGlaucome() {
