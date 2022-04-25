@@ -1,5 +1,13 @@
 <body [ngClass]="configurationService.getCentreForGlaucome()">
-    <h2 [ngClass]="configurationService.getColorForProtanopieText()">Lancement</h2>
+    <div class="configQuiz">
+    <h1 [ngClass]="configurationService.getColorForProtanopieText()">Vous avez choisi le quiz :</h1>
+    <h2 [ngClass]="configurationService.getColorForProtanopieText()">{{name}}</h2>
+    <h3 [ngClass]="configurationService.getColorForProtanopieText()">
+        Le thème du quiz est {{theme}}.
+        <br>
+        Dans le quiz selectionné il y a {{nbQuestion}} questions.
+        
+    </h3>
     <ng-container *ngIf="quiz && configurationService.arthrose">
         <button class="button-card" [ngClass]="configurationService.getProtanopieArthroseButton()" (mouseenter)="startTimer('/accueil')" (mouseleave)="stopTimer()">Retour aux quizs</button>
         <button class="button-card" [ngClass]="configurationService.getProtanopieArthroseButton()" (mouseenter)="startTimer('/config-quiz/')" (mouseleave)="stopTimer()">Configuration du quiz</button>
@@ -10,4 +18,5 @@
         <button class="button-card" [ngClass]="configurationService.getProtanopieArthroseButton()" routerLink="/config-quiz/{{quiz.id}}">Configuration du quiz</button>
         <button class="button-card" [ngClass]="configurationService.getProtanopieArthroseButton()" routerLink="/jeu/{{quiz.id}}">Début du quiz</button>
     </ng-container>
+</div>
 </body>

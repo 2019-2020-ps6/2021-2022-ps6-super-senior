@@ -16,6 +16,10 @@ export class LancementQuizComponent implements OnInit {
   interval;
   path: String;
   public quiz: Quiz;
+  public nbQuestion: number;
+  public theme: string;
+  public name:string;
+  public id: string;
 
   constructor(private route: ActivatedRoute, private quizService: QuizService, public configurationService: ConfigurationService, private router: Router) {
     this.quizService.quizSelected$.subscribe((quiz) => this.quiz = quiz);
@@ -23,8 +27,17 @@ export class LancementQuizComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    const id = this.route.snapshot.paramMap.get('id');
-    this.quizService.setSelectedQuiz(id);
+    this.id = this.route.snapshot.paramMap.get('id');
+    this.quizService.setSelectedQuiz(this.id);
+    this.update();
+  }
+
+  update(){
+    this.quizService.quizSelected$.subscribe((quiz) => {
+      this.nbQuestion=this.quiz.questions.length;
+      this.theme=this.quiz.theme;
+      this.name=this.quiz.name;
+    });
   }
 
   startTimer(path: String) : void {
