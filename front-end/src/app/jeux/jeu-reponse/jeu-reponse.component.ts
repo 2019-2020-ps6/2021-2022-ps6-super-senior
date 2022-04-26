@@ -34,8 +34,11 @@ import { UserService } from "src/services/user.service";
     @Output()
     newQuestionSelected : EventEmitter<boolean> = new EventEmitter<boolean>();
 
+    interval;
+    timeLeft : number;
 
     constructor( public configurationService : ConfigurationService, public userService : UserService){
+        this.timeLeft = configurationService.temps;
     }
 
     ngOnInit(): void {
@@ -51,4 +54,24 @@ import { UserService } from "src/services/user.service";
     newQuestion(){
         this.newQuestionSelected.emit(true);
     }
+
+    startTimer() : void {
+        this.interval = setInterval(() => {
+          if(this.timeLeft > 0) {
+            this.timeLeft--;
+          }
+          if(this.timeLeft==0){
+            this.stopTimer();
+          }
+        },1000)
+      
+      }
+      
+      stopTimer() {
+        if(this.timeLeft==0){
+          this.newQuestion();
+        }
+        this.timeLeft=this.configurationService.temps;
+        clearInterval(this.interval);
+      }
 }  
