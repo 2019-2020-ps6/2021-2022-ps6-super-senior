@@ -2,7 +2,8 @@
     <div class="label">
         <h2 class="labelQuestion" [ngClass]="configurationService.getColorForProtanopieText()" [ngClass]="configurationService.getTailleForArthrose()">
             {{question.label}} 
-            <button class="audioQuestion" (click)="lecture(question.label)"><img class="imageAudioQuestion" src="https://cdn.icon-icons.com/icons2/910/PNG/512/headphones_icon-icons.com_71177.png"></button>
+            <button *ngIf="!configurationService.arthrose"class="audioQuestion" (click)="lecture(question.label)"><img class="imageAudioQuestion" src="https://cdn.icon-icons.com/icons2/910/PNG/512/headphones_icon-icons.com_71177.png"></button>
+            <button *ngIf="configurationService.arthrose" class="audioQuestion" (click)="lecture(question.label)" (mouseenter)="lecture(question.label)"><img class="imageAudioQuestion" src="https://cdn.icon-icons.com/icons2/910/PNG/512/headphones_icon-icons.com_71177.png"></button>
         </h2>
         <span class="image" *ngIf="question.image">
             <img class="imageQuestion" src={{question.image}}>
@@ -17,7 +18,7 @@
                     {{answer.value}}
                     <img class="imageAnswerSmall" src={{answer.imageAnswer}}>
                 </button>
-                <button class="audioAnswer" (click)="lecture(answer.value)"><img class="imageAudioAnswer" src="https://cdn.icon-icons.com/icons2/910/PNG/512/headphones_icon-icons.com_71177.png"></button>
+                <button class="audioAnswer" (mouseenter)="lecture(answer.value)" (mouseleave)="stopTimer()" (click)="lecture(answer.value)"><img class="imageAudioAnswer" src="https://cdn.icon-icons.com/icons2/910/PNG/512/headphones_icon-icons.com_71177.png"></button>
             </div>
         </ng-container>
         <ng-container *ngIf="question.answers.length<=2">
@@ -28,7 +29,7 @@
                     {{answer.value}}
                     <img class="imageAnswerBig" src={{answer.imageAnswer}}>
                 </button>
-                <button class="audioAnswer" (click)="lecture(answer.value)"><img class="imageAudioAnswer" src="https://cdn.icon-icons.com/icons2/910/PNG/512/headphones_icon-icons.com_71177.png"></button>
+                <button class="audioAnswer" (mouseenter)="lecture(answer.value)" (click)="lecture(answer.value)"><img class="imageAudioAnswer" src="https://cdn.icon-icons.com/icons2/910/PNG/512/headphones_icon-icons.com_71177.png"></button>
             </div>
         </ng-container>
     </div>

@@ -4,6 +4,7 @@ import { ConfigurationService } from 'src/services/configuration.service';
 import { UserService } from 'src/services/user.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { HeaderComponent } from 'src/app/header/header.component';
 
 @Component({
     selector: 'app-user-info',
@@ -69,7 +70,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
       delete(){
         this.userService.deleteUser(this.user);
-        
+        this.userService.deconnexion();
       }
 
       editedFirstName() : void{

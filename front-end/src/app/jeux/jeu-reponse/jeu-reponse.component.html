@@ -25,22 +25,25 @@
         <div class="enSavoirPlus" *ngIf="answer.enSavoirPlus" [ngClass]="configurationService.getColorForProtanopieText()">
             En savoir plus ?
             <br>
-            <br>
-            <button class="audio" (click)="lecture(answer.enSavoirPlus)" [ngClass]="configurationService.getProtanopieGlaucomeArthroseButtonSmall()">
-                <img class="imageAudio" src="https://cdn.icon-icons.com/icons2/910/PNG/512/headphones_icon-icons.com_71177.png">
+            <button *ngIf="configurationService.arthrose" class="audio" (click)="lecture(answer.enSavoirPlus)" [ngClass]="configurationService.getProtanopieGlaucomeArthroseButtonSmall()">
+                <img (mouseenter)="startTimer()" (mouseleave)="stopTimer()" class="imageAudio" src="https://cdn.icon-icons.com/icons2/910/PNG/512/headphones_icon-icons.com_71177.png">
+            </button>
+            <button *ngIf="!configurationService.arthrose" class="audio" (click)="lecture(answer.enSavoirPlus)" [ngClass]="configurationService.getProtanopieGlaucomeArthroseButtonSmall()">
+                <img  class="imageAudio" src="https://cdn.icon-icons.com/icons2/910/PNG/512/headphones_icon-icons.com_71177.png">
             </button>
         </div>
     </div>
     <div class="bouton">
-        <button class="button-card"(click)="newQuestion()">Question suivante</button>
+        <button *ngIf="!configurationService.arthrose" class="button-card"(click)="newQuestion()">Question suivante</button>
+    </div>
+    <div class="bouton">
+        <button *ngIf="configurationService.arthrose" (mouseenter)="startTimer()" (mouseleave)="stopTimer()" class="button-card"(click)="newQuestion()">Question suivante</button>
     </div>
 </div>
 <div *ngIf="!isCorrect">
     <div class="question" [ngClass]="configurationService.getColorForProtanopieText()">
         {{question}}
     </div>
-    <br>
-    <br>
     <div class="parent">
         <div class="answer" [ngClass]="configurationService.getColorForProtanopieText()">
             {{answer.value}}
@@ -50,14 +53,19 @@
         <div class="enSavoirPlus" *ngIf="answer.enSavoirPlus" [ngClass]="configurationService.getColorForProtanopieText()">
             En savoir plus ?
             <br>
-            <br>
-            <button class="audio" (click)="lecture(answer.enSavoirPlus)">
+            <button *ngIf="!configurationService.arthrose" class="audio" (click)="lecture(answer.enSavoirPlus)">
                 <img class="imageAudio" src="https://cdn.icon-icons.com/icons2/910/PNG/512/headphones_icon-icons.com_71177.png">
+            </button>
+            <button *ngIf="configurationService.arthrose" class="audio" (click)="lecture(answer.enSavoirPlus)">
+                <img  (mouseenter)="startTimer()" (mouseleave)="stopTimer()" class="imageAudio" src="https://cdn.icon-icons.com/icons2/910/PNG/512/headphones_icon-icons.com_71177.png">
             </button>
         </div>
     </div>
     <div class="bouton">
-        <button class="button-card"(click)="newQuestion()" [ngClass]="configurationService.getProtanopieGlaucomeArthroseButtonSmall()">Question suivante</button>
+        <button *ngIf="!configurationService.arthrose" class="button-card"(click)="newQuestion()" [ngClass]="configurationService.getProtanopieGlaucomeArthroseButtonSmall()">Question suivante</button>
+    </div>
+    <div class="bouton">
+        <button *ngIf="configurationService.arthrose" (mouseenter)="startTimer()" (mouseleave)="stopTimer()" class="button-card"(click)="newQuestion()" [ngClass]="configurationService.getProtanopieGlaucomeArthroseButtonSmall()">Question suivante</button>
     </div>
 </div>
 </body>
