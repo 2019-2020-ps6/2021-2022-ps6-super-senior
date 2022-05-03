@@ -119,7 +119,7 @@ export class JeuComponent implements OnInit {
   }
   
   stopTimer() {
-    if(this.timeLeft ==0){
+    if(this.timeLeft == 0){
       this.router.navigate([this.path]);  
     }
     this.timeLeft=this.configurationService.temps;

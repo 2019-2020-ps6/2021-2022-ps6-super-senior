@@ -5,7 +5,7 @@
             {{quiz.name}}
         </h2>
         <h2 class="score" [ngClass]="configurationService.getColorForProtanopieText()">
-            Score : {{score}}
+            Score : {{score}}/{{indexQuestion}}
         </h2>
         <ng-container *ngIf="!configurationService.arthrose">
             <div class="fin-quiz" *ngIf="indexQuestion===quiz.questions.length">
