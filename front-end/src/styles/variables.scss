@@ -55,7 +55,7 @@ $protanopie : #085394;
   flex-wrap: wrap;
   text-align: justify;
   justify-content: space-between;
-  padding: 32px 48px;
+  //padding: 32px 48px;
 }
 
 .answerSmall-glaucome {
@@ -112,5 +112,21 @@ $protanopie : #085394;
 }
 
 .taille-arthrose {
-  width:100%
+  width: 90%;
+  margin-top: 0.4%;
+  margin-bottom: 0.4;
+}
+
+.taille-arthrose-accueil {
+  width:51%;
+  height: 60px;
+  margin-top: 1%;
+  margin-bottom: 1%;
+}
+
+.taille-normal{
+  width:51%;
+  height: 40px;
+  margin-top: 1%;
+  margin-bottom: 1%;
 }

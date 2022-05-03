@@ -39,7 +39,13 @@ export class ConfigurationService {
     getProtanopieArthroseButton() {
         return {'color-protanopie': this.protanopie, 'color-normal': !this.protanopie, 
         'color-protanopie-button': this.protanopie, 'color-normal-button': !this.protanopie,
-        'taille-arthrose': this.arthrose}
+        'taille-arthrose': this.arthrose, 'taille-normal' : !this.arthrose}
+    }
+
+    getProtanopieArthroseButtonLancement(){
+        return {'color-protanopie': this.protanopie, 'color-normal': !this.protanopie, 
+        'color-protanopie-button': this.protanopie, 'color-normal-button': !this.protanopie,
+        'taille-arthrose-accueil': this.arthrose, 'taille-normal' : !this.arthrose}
     }
 
     getProtanopieGlaucomeArthroseButtonSmall() {
