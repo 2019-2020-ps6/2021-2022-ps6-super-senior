@@ -54,12 +54,14 @@
               <div *ngIf="user.arthrose" id="ChoixTemps" class="ChoixTemps">
                 Temps pour choisir la réponse : 
                 <select id="time" (change)="newTime($event)">
-                    <option value="1">1 sec</option>
-                    <option value="2" selected>2 sec</option>
-                    <option value="3">3 sec</option>
-                    <option value="4">4 sec</option>
-                    <option value="5">5 sec</option>
-                </select>
+                  <option value="">--Choisissez un temps--</option>
+                  <option value="1">1 sec</option>
+                  <option value="2">2 sec</option>
+                  <option value="3">3 sec</option>
+                  <option value="4">4 sec</option>
+                  <option value="5">5 sec</option>
+              </select>
+              <p [ngClass]="configurationService.getColorForProtanopieText()">Temps actuel : {{this.configurationService.temps}} sec</p>
               </div>
             </div>
             <span *ngIf="user.protanopie || user.glaucome || user.arthrose"class="indicationsTroubles">
