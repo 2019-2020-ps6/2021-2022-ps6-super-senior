@@ -30,7 +30,7 @@
                 <option value="4">4 sec</option>
                 <option value="5">5 sec</option>
             </select>
-            <p [ngClass]="configurationService.getColorForProtanopieText()">Temps actuel : {{temps}} sec</p> 
+            <p [ngClass]="configurationService.getColorForProtanopieText()">Temps actuel : {{this.configurationService.temps}} sec</p> 
         </div>
     </div>
 
