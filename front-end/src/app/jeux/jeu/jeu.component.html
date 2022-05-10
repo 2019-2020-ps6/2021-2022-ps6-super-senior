@@ -33,7 +33,7 @@
     <div class="fin-quiz" *ngIf="indexQuestion===quiz.questions.length">
         <button [ngClass]="configurationService.getTerminerButton()" routerLink="/fin-quiz">Terminer le quiz</button>
     </div>
-    <div class="abandon" *ngIf="indexQuestion!=quiz.questions.length">
+    <div class="abandon-seul" *ngIf="indexQuestion!=quiz.questions.length">
         <button class="button-abandon" [ngClass]="configurationService.getAbandonSize()" routerLink="/accueil">Abandonner</button>
     </div>
     <app-jeu-reponse class="reponse" [answer]="trueAnswer()" [isCorrect]="answerGiven.isCorrect" [numero]="indexQuestion" [nbQuestion]="quiz.questions.length" [nomQuiz]="quiz.name" [question]="quiz.questions[indexQuestion-1].label" (newQuestionSelected)="selectNewQuestion($event)"></app-jeu-reponse>
