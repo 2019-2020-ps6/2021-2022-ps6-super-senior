@@ -62,11 +62,13 @@ export class JeuQuestionComponent implements OnInit {
     return array;
   }
 
+  synth : Window["speechSynthesis"] = window.speechSynthesis;
+
   lecture(texte : string){
-    const synth = window.speechSynthesis;
+    this.synth.cancel();
     const utterThis = new SpeechSynthesisUtterance(texte);
     utterThis.lang = 'fr-FR';
-    synth.speak(utterThis);
+    this.synth.speak(utterThis);
   }
 
   startTimer(answer: Answer, answersId: string) : void {
@@ -94,8 +96,8 @@ export class JeuQuestionComponent implements OnInit {
     clearInterval(this.interval);
   }
 
-  clickOnAudioOrAnswer(result : Answer){
-    if(result){
+  clickOnAudioOrAnswer(result : Answer, lecture : boolean){
+    if(lecture){
       console.log(result)
 
       console.log("lecture");

@@ -14,7 +14,7 @@
         <button class="button-card" [ngClass]="configurationService.getProtanopieArthroseButtonLancement()" (mouseenter)="startTimer('/jeu/')" (mouseleave)="stopTimer()">Début du quiz</button>
     </ng-container>
     <ng-container *ngIf="quiz && !configurationService.arthrose">
-        <button class="button-card" [ngClass]="configurationService.getProtanopieArthroseButton()" routerLink="/accueil">Retour aux quizs</button>
+        <button class="button-card" type="button"[ngClass]="configurationService.getProtanopieArthroseButton()" routerLink="/accueil">Retour aux quizs</button>
         <button class="button-card" [ngClass]="configurationService.getProtanopieArthroseButton()" routerLink="/config-quiz/{{quiz.id}}">Configuration du quiz</button>
         <button class="button-card" [ngClass]="configurationService.getProtanopieArthroseButton()" routerLink="/jeu/{{quiz.id}}">Début du quiz</button>
     </ng-container>

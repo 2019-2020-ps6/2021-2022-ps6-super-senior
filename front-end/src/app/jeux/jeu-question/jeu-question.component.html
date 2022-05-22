@@ -38,7 +38,7 @@
     <div *ngIf="!configurationService.arthrose" class="answer-list">
         <ng-container *ngIf="question.answers.length>2">
             <div class="answers" *ngFor="let answer of question.answers; let i=index">
-                <button *ngIf="!answer.imageAnswer" [ngClass]="configurationService.getProtanopieGlaucomeArthroseButtonSmall()" (click)="selectAnswer(answer);isCorrect(answer.isCorrect)">{{answer.value}} </button>
+                <button  class="answerSmall" *ngIf="!answer.imageAnswer" [ngClass]="configurationService.getProtanopieGlaucomeArthroseButtonSmall()" (click)="selectAnswer(answer);isCorrect(answer.isCorrect)">{{answer.value}} </button>
                 <button class="answerImageSmall" *ngIf="answer.imageAnswer" [ngClass]="configurationService.getColorForProtanopieButton()" [ngClass]="configurationService.getTailleForArthrose()"
                 (click)="selectAnswer(answer);isCorrect(answer.isCorrect)">
                     {{answer.value}}
@@ -49,7 +49,7 @@
         </ng-container>
         <ng-container *ngIf="question.answers.length<=2">
             <div class="answers" *ngFor="let answer of question.answers; let i=index">
-                <button *ngIf="!answer.imageAnswer" [ngClass]="configurationService.getColorForProtanopieGlaucomeArthroseButtonBig()" (click)="selectAnswer(answer);isCorrect(answer.isCorrect)">{{answer.value}} </button>
+                <button class="answerBig"*ngIf="!answer.imageAnswer" [ngClass]="configurationService.getColorForProtanopieGlaucomeArthroseButtonBig()" (click)="selectAnswer(answer);isCorrect(answer.isCorrect)">{{answer.value}} </button>
                 <button class="answerImageBig" *ngIf="answer.imageAnswer" [ngClass]="configurationService.getColorForProtanopieButton()" [ngClass]="configurationService.getTailleForArthrose()"
                 (click)="selectAnswer(answer);isCorrect(answer.isCorrect)">
                     {{answer.value}}
