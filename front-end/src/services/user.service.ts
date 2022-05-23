@@ -38,6 +38,7 @@ export class UserService {
     this.http.get<User[]>(this.userUrl).subscribe((userList) => {
       this.users = userList;
       this.users$.next(this.users);
+      this.userCurrent$.next(null);
     });
   }
 

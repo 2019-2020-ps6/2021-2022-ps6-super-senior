@@ -2,6 +2,7 @@ import { Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 import { Quiz } from '../../../models/quiz.model';
 import { ConfigurationService } from 'src/services/configuration.service';
 import { Router } from '@angular/router';
+import { UserService } from 'src/services/user.service';
 
 @Component({
   selector: 'app-quiz',
@@ -13,6 +14,7 @@ export class QuizComponent implements OnInit {
   timeLeft: number = 5;
   interval;
   path: String;
+  isUser = false;
 
   @Input()
   quiz: Quiz;
@@ -26,8 +28,15 @@ export class QuizComponent implements OnInit {
   @Output()
   deleteQuiz: EventEmitter<Quiz> = new EventEmitter<Quiz>();
 
-  constructor(public configurationService: ConfigurationService, private router: Router) {
+  constructor(public configurationService: ConfigurationService, private router: Router, public userService : UserService) {
     this.timeLeft = configurationService.temps;
+    this.userService.userCurrent$.subscribe( user => {
+      if(user == null) {
+        this.isUser = false;
+      } else {
+        this.isUser = true;
+      }
+    })
   }
 
   ngOnInit(): void {

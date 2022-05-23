@@ -1,3 +1,5 @@
+<ng-container>
+
 <div class="card">
   <h2>Nouvelle question</h2>
   <form class="quiz-form" [formGroup]="questionForm">
@@ -58,6 +60,7 @@
     <button type="submit" class="button-card" (click)="addQuestion()">Ajout Question</button>
   </form>
 </div>
+</ng-container>
 
 <!-- Uncomment below to see your form structure and how it changes-->
 <!-- <br><br>{{quizForm.getRawValue() | json}} -->
