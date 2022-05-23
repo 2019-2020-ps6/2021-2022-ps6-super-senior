@@ -41,7 +41,7 @@ export class QuizFormComponent implements OnInit {
       this.quizList = quizzes;
     });
     this.quizService.quizSelected$.subscribe((quiz) => this.quiz = quiz);
-    this.text="Créer un quiz";
+    this.text="Créer une question";
     // You can also add validators to your inputs such as required, maxlength or even create your own validator!
     // More information: https://angular.io/guide/reactive-forms#simple-form-validation
     // Advanced validation: https://angular.io/guide/form-validation#reactive-form-validation
@@ -123,9 +123,9 @@ export class QuizFormComponent implements OnInit {
   }
   public changeText(bool : boolean): void {
     if(bool==true) { 
-      this.text = 'Ajoute une question'
+      this.text = 'Ajoute une nouvelle question'
     } else {
-      this.text = 'Crée un quiz'
+      this.text = 'Crée une question'
     }
   }
 
