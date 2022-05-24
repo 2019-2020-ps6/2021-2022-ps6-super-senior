@@ -42,6 +42,7 @@ export class ConfigQuizComponent implements OnInit {
     this.configurationService.glaucome = this.glaucome;
     this.configurationService.arthrose = this.arthrose;
     this.configurationService.temps = this.temps;
+    console.log(this.temps);
     this.sizeChange();
   }
 
@@ -97,10 +98,10 @@ export class ConfigQuizComponent implements OnInit {
       if(this.timeLeft==0){
         this.path=path;
         this.stopTimer();
+        this.saveChange();
       }
     },1000)
     this.path=path;
-
   }
   
   stopTimer() {

@@ -19,6 +19,8 @@ export class JeuQuestionComponent implements OnInit {
 
   @Input()
   question: Question;
+  
+  ready : boolean = true;
 
   public answersRandom : Answer[];
 
@@ -30,6 +32,7 @@ export class JeuQuestionComponent implements OnInit {
 
   constructor(public configurationService: ConfigurationService) {
     this.timeLeft = configurationService.temps;
+    //this.attendre();
   }
 
   ngOnInit(): void {
@@ -72,18 +75,20 @@ export class JeuQuestionComponent implements OnInit {
   }
 
   startTimer(answer: Answer, answersId: string) : void {
-    this.interval = setInterval(() => {
-      if(this.timeLeft > 0) {
-        this.timeLeft--;
-      }
-      if(this.timeLeft==0){
-        this.answerHover=answer;
-        this.answerId=answersId;
-        this.stopTimer();
-      }
-    },1000)
-    this.answerHover=answer;
-    this.answerId=answersId;
+    if(this.ready){
+      this.interval = setInterval(() => {
+        if(this.timeLeft > 0) {
+          this.timeLeft--;
+        }
+        if(this.timeLeft==0){
+          this.answerHover=answer;
+          this.answerId=answersId;
+          this.stopTimer();
+        }
+      },1000)
+      this.answerHover=answer;
+      this.answerId=answersId;
+    }
   
   }
   
@@ -109,6 +114,20 @@ export class JeuQuestionComponent implements OnInit {
       console.log("valide");
 
     }
+  }
+
+  attendre(){
+    var time = 4;
+    this.interval = setInterval(() => {
+      if(time > 0) {
+        time--;
+        console.log("on attend 4s");
+      }
+      if(time==0){
+        this.ready = true;
+        clearInterval(this.interval);
+      }
+    },1000);
   }
 
   

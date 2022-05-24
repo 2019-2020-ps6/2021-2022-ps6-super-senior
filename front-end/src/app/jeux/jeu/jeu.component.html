@@ -9,7 +9,7 @@
         </h2>
         <ng-container *ngIf="!configurationService.arthrose">
             <div class="fin-quiz" *ngIf="indexQuestion===quiz.questions.length">
-                <button [ngClass]="configurationService.getTerminerButton()" routerLink="/fin-quiz">Terminer le quiz</button>
+                <button [ngClass]="configurationService.getTerminerButton()" routerLink="/accueil">Terminer le quiz</button>
             </div>
             <div class="abandon" *ngIf="indexQuestion!=quiz.questions.length">
                 <button class="button-abandon" [ngClass]="configurationService.getAbandonSize()" routerLink="/accueil">Abandonner</button>
@@ -17,7 +17,7 @@
         </ng-container>  
         <ng-container *ngIf="configurationService.arthrose">
             <div class="fin-quiz" *ngIf="indexQuestion===quiz.questions.length">
-                <button [ngClass]="configurationService.getTerminerButton()" (mouseenter)="startTimer('/fin-quiz')" (mouseleave)="stopTimer()">Terminer le quiz</button>
+                <button [ngClass]="configurationService.getTerminerButton()" (mouseenter)="startTimer('/accueil')" (mouseleave)="stopTimer()">Terminer le quiz</button>
             </div>
             <div class="abandon" *ngIf="indexQuestion!=quiz.questions.length">
                 <button class="button-abandon" [ngClass]="configurationService.getAbandonSize()" (mouseenter)="startTimer('/accueil')" (mouseleave)="stopTimer()">Abandonner</button>
@@ -31,7 +31,7 @@
 </div>
 <div *ngIf="!newQuestion">
     <div class="fin-quiz" *ngIf="indexQuestion===quiz.questions.length">
-        <button [ngClass]="configurationService.getTerminerButton()" routerLink="/fin-quiz">Terminer le quiz</button>
+        <button [ngClass]="configurationService.getTerminerButton()" routerLink="/accueil">Terminer le quiz</button>
     </div>
     <div class="abandon-seul" *ngIf="indexQuestion!=quiz.questions.length">
         <button class="button-abandon" [ngClass]="configurationService.getAbandonSize()" routerLink="/accueil">Abandonner</button>

@@ -26,10 +26,10 @@
             En savoir plus ?
             <br>
             <button *ngIf="configurationService.arthrose" class="audio" (click)="lecture(answer.enSavoirPlus)" [ngClass]="configurationService.getProtanopieGlaucomeArthroseButtonSmall()">
-                <img (mouseenter)="startTimer()" (mouseleave)="stopTimer()" class="imageAudio" src="https://cdn.icon-icons.com/icons2/910/PNG/512/headphones_icon-icons.com_71177.png">
+                <img (mouseenter)="startTimer()" (mouseleave)="stopTimer()" class="imageAudio" src="{{lien}}">
             </button>
             <button *ngIf="!configurationService.arthrose" class="audio" (click)="lecture(answer.enSavoirPlus)" [ngClass]="configurationService.getProtanopieGlaucomeArthroseButtonSmall()">
-                <img  class="imageAudio" src="https://cdn.icon-icons.com/icons2/910/PNG/512/headphones_icon-icons.com_71177.png">
+                <img  class="imageAudio" src="{{lien}}">
             </button>
         </div>
     </div>
@@ -54,7 +54,7 @@
             En savoir plus ?
             <br>
             <button *ngIf="!configurationService.arthrose" class="audio" (click)="lecture(answer.enSavoirPlus)">
-                <img class="imageAudio" src="https://cdn.icon-icons.com/icons2/910/PNG/512/headphones_icon-icons.com_71177.png">
+                <img class="imageAudio" src="{{lien}}">
             </button>
             <button *ngIf="configurationService.arthrose" class="audio" (click)="lecture(answer.enSavoirPlus)">
                 <img  (mouseenter)="startTimer()" (mouseleave)="stopTimer()" class="imageAudio" src="https://cdn.icon-icons.com/icons2/910/PNG/512/headphones_icon-icons.com_71177.png">
