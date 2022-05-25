@@ -17,7 +17,6 @@
     "glaucome": true,
     "arthrose": false,
     "temps": 2,
-
     "id": 1650832724145
   },
   {
@@ -29,15 +28,5 @@
     "arthrose": true,
     "temps": "3",
     "id": 1650916773962
-  },
-  {
-    "firstName": "Jean",
-    "lastName": "Neymar",
-    "photo": "",
-    "protanopie": false,
-    "glaucome": true,
-    "arthrose": true,
-    "temps": 2,
-    "id": 1651569310931
   }
 ]
